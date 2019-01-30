@@ -1,1 +1,1 @@
-add_library(project_files initial.h initial.cpp)
+add_library(project_files initial.h initial.cpp crud.cpp crud.h)
