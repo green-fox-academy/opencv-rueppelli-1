@@ -13,6 +13,7 @@ find_package(SQLITE3 REQUIRED)
 add_executable(opencv-ruepelli-1 main.cpp)
 
 include_directories(files)
+include_directories($ENV{SQlite3_inc})
 include_directories(${OpenCV_INCLUDE_DIRS})
 add_subdirectory(files)
 add_subdirectory(gtest)
