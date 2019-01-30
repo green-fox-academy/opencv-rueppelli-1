@@ -5,6 +5,9 @@
 #ifndef OPENCV_RUEPELLI_1_INITIAL_H
 #define OPENCV_RUEPELLI_1_INITIAL_H
 
+
+
+
 int initialFunction(int a, int b);
 
 
