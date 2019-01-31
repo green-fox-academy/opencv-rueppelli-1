@@ -6,6 +6,10 @@
 #include "initial.h"
 #include "image_bluring.h"
 
+cv::Mat img;
+cv::Mat smoothed_img;
+int v_median = 0;
+int v_gaussian = 0;
 
 int main()
 {
