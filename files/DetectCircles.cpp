@@ -5,10 +5,9 @@
 #include "DetectCircles.h"
 
 
-cv::Mat detectCircle(cv::Mat img)
-{
-
-    if(!img.empty()) {
+int detectCircle() {
+int result;
+    if (!img.empty()) {
         cv::Mat gray;
         cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
 
@@ -24,11 +23,23 @@ cv::Mat detectCircle(cv::Mat img)
             int radius = c[2];
             circle(img, center, radius, cv::Scalar(255, 0, 255), 3, cv::LINE_AA);
 
+            int centerX = c[0];
+            int centerY = c[1];
+            char buffer[11];
+            sprintf(buffer, "area = %d", radius*radius);
+            cv::putText(img, buffer, cv::Point(centerX - radius/2, centerY - radius/2), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(165,115,147), 1, 8, false );
+            char buffer2[11];
+            sprintf(buffer, "X = %d", c[0]);
+            sprintf(buffer2, "Y = %d", c[1]);
+            cv::putText(img, buffer, cv::Point(centerX - radius/2, centerY + radius/4), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(165,115,147), 1, 8, false );
+            cv::putText(img, buffer2, cv::Point(centerX - radius/4, centerY + radius/2), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(165,115,147), 1, 8, false );
+
         }
+        result = circles.size();
     }
 
 
 
-    return img;
+    return result;
 
 }

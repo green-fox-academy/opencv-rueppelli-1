@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "initial.h"
+#include "DetectCircles.h"
 #include "image_bluring.h"
 
 cv::Mat img;
@@ -13,7 +14,7 @@ int v_gaussian = 0;
 
 int main()
 {
-    std::string imagePath = "..\\img\\balsee.jpg";
+    std::string imagePath = "..\\img\\ball.jpg";
     img = cv::imread( imagePath, 1);
 
     if (!img.data) {
@@ -23,9 +24,10 @@ int main()
 
     cv::namedWindow("Project Picture", 1);
 
-    bluring_image();
+    //bluring_image();
+    std::cout << detectCircle() << std::endl;
+    imshow( "Project Picture", img );
 
-    imshow( "Project Picture", smoothed_img );
 
     cv::waitKey(0);
     return 0;

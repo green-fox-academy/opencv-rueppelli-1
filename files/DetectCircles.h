@@ -10,7 +10,9 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 
-cv::Mat detectCircle(cv::Mat img);
+extern cv::Mat img;
+
+int detectCircle();
 
 
 
