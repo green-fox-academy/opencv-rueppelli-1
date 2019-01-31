@@ -4,11 +4,17 @@
 #include <cstdlib>
 #include <iostream>
 #include "initial.h"
+#include "image_bluring.h"
+
+cv::Mat img;
+cv::Mat smoothed_img;
+int v_median = 0;
+int v_gaussian = 0;
 
 int main()
 {
     std::string imagePath = "..\\img\\balsee.jpg";
-    cv::Mat img = cv::imread( imagePath, 1);
+    img = cv::imread( imagePath, 1);
 
     if (!img.data) {
         std::cout << "Could not open or find the image" << std::endl;
@@ -17,7 +23,9 @@ int main()
 
     cv::namedWindow("Project Picture", 1);
 
-    imshow( "Project Picture", img );
+    bluring_image();
+
+    imshow( "Project Picture", smoothed_img );
 
     cv::waitKey(0);
     return 0;
