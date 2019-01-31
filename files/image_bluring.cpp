@@ -5,10 +5,6 @@
 #include <cstdlib>
 #include <opencv2/core/core.hpp>
 
-cv::Mat img;
-cv::Mat smoothed_img;
-int v_median = 0;
-int v_gaussian = 0;
 
 
 void gaussian(int, void *) {
