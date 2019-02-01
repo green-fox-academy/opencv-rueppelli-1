@@ -12,10 +12,10 @@
 #include <opencv2/opencv.hpp>
 
 static int callBack(void *NotUsed, int argc, char **argv, char **azColName);
-int readDataBase(const char* databasePath);
-int createRecord(std::string databasePath, std::string path);
-int deleteRecord(std::string databasePath, std::string userCmdAfterWhere);
-int updateRecord(std::string databasePath, std::string userCmdAfterSet);
-int selectRecords(std::string databasePath, std::string chooseRecord);
+int readDataBase(std::string databasePath);
+int createRecord(std::string databasePath, std::string tableName, std::string path, int detectedCircles);
+int deleteRecord(std::string databasePath, std::string tableName, std::string userCmdAfterWhere);
+int updateRecord(std::string databasePath, std::string tableName, std::string userCmdAfterSet);
+int selectRecords(std::string databasePath, std::string tableName, std::string chooseRecord);
 
 #endif //OPENCV_RUEPELLI_1_CRUD_H
