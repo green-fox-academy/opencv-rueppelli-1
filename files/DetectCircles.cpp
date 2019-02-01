@@ -5,7 +5,7 @@
 #include "DetectCircles.h"
 
 
-int detectCircle() {
+int detectCircle(cv::Mat img) {
 int result;
 
 
@@ -38,6 +38,8 @@ int result;
 
         }
         result = circles.size();
+    }else{
+        return -1;
     }
 
 

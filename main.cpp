@@ -28,7 +28,7 @@ int main()
     clock_t start, end;
 
     start = clock();
-    int circleAmount = detectCircle();
+    int circleAmount = detectCircle(img);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
 
