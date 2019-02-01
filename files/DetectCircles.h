@@ -9,9 +9,10 @@
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
-
+#include "crud.h"
 
 extern cv::Mat img;
+
 
 int detectCircle();
 

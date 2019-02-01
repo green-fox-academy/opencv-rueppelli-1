@@ -7,7 +7,7 @@
 #include "DetectCircles.h"
 #include "image_bluring.h"
 #include "crud.h"
-
+#include <time.h>
 
 cv::Mat img;
 cv::Mat smoothed_img;
@@ -16,7 +16,7 @@ int v_gaussian = 0;
 
 int main()
 {
-    std::string imagePath = "..\\img\\ball.jpg";
+    std::string imagePath = "..\\img\\cscsk.jpg";
     img = cv::imread( imagePath, 1);
 
     if (!img.data) {
@@ -25,15 +25,16 @@ int main()
     }
 
     cv::namedWindow("Project Picture", 1);
+    clock_t start, end;
 
+    start = clock();
+    int circleAmount = detectCircle();
+    end = clock();
+    double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
 
-    std::cout << detectCircle() << std::endl;
     imshow( "Project Picture", img );
 
-
     cv::waitKey(0);
-    int x = 3;
-
 
     return 0;
 };

@@ -7,6 +7,8 @@
 
 int detectCircle() {
 int result;
+
+
     if (!img.empty()) {
         cv::Mat gray;
         cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
@@ -37,6 +39,7 @@ int result;
         }
         result = circles.size();
     }
+
 
 
 
