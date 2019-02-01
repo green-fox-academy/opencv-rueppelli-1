@@ -36,7 +36,7 @@ int readDataBase(std::string databasePath)
     return 0;
 }
 
-int createRecord(std::string databasePath, std::string tableName, std::string path, int detectedCircles)
+int createRecord(std::string databasePath, std::string tableName, std::string path, double processingTime, int detectedCircles)
 {
     cv::Mat img = cv::imread(path);
 
@@ -60,10 +60,10 @@ int createRecord(std::string databasePath, std::string tableName, std::string pa
 
     rc = sqlite3_open(charDatabasePath, &myDataBase);
 
-    int lol = 3;
-    int lol2 = 4;
-    sprintf(buffer, "INSERT INTO %s(path, processingTime, detectedCircles) VALUES(\"%s\", %d, %d);", charTableName, charPath, lol, detectedCircles);
 
+    double lol = 3;
+    sprintf(buffer, "INSERT INTO %s(path, processingTimeInSec, detectedCircles) VALUES(\"%s\", %.2f, %d);", charTableName, charPath, processingTime, detectedCircles);
+    
     rc = sqlite3_exec(myDataBase, buffer, callBack, 0, &zErrMsg);
 
     if (rc != SQLITE_OK) {
@@ -76,7 +76,7 @@ int createRecord(std::string databasePath, std::string tableName, std::string pa
     }
 }
 
-int deleteRecord(std::string databasePath, std::string tableName, std::string userCmdAfterWhere)
+int deleteRecord(std::string databasePath, std::string tableName, int id)
 {
     unsigned long long int x = databasePath.length();
     char charDatabasePath[x + 1];
@@ -86,13 +86,9 @@ int deleteRecord(std::string databasePath, std::string tableName, std::string us
     char charTableName[z + 1];
     strcpy(charTableName, tableName.c_str());
 
-    unsigned long long int y = userCmdAfterWhere.length();
-    char charUserCmd[y + 1];
-    strcpy(charUserCmd, userCmdAfterWhere.c_str());
-
     rc = sqlite3_open(charDatabasePath, &myDataBase);
 
-    sprintf(buffer, "DELETE FROM %s WHERE %s;", charTableName, charUserCmd);
+    sprintf(buffer, "DELETE FROM %s WHERE _rowid_ = %d;", charTableName, id);
 
     rc = sqlite3_exec(myDataBase, buffer, callBack, 0, &zErrMsg);
 
