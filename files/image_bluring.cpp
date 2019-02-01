@@ -31,5 +31,3 @@ void bluring_image (){
 
 
 
-
-

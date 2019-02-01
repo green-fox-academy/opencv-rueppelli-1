@@ -24,4 +24,4 @@ add_subdirectory(gtest)
 
 
 
-target_link_libraries(opencv-ruepelli-1 ${OpenCV_LIBS} sqlite3::sqlite3 project_files)
+target_link_libraries(opencv-ruepelli-1 ${OpenCV_LIBS} project_files sqlite3::sqlite3)

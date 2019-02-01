@@ -5,6 +5,8 @@
 #include <iostream>
 #include "initial.h"
 #include "image_bluring.h"
+#include "crud.h"
+
 
 cv::Mat img;
 cv::Mat smoothed_img;
@@ -28,5 +30,8 @@ int main()
     imshow( "Project Picture", smoothed_img );
 
     cv::waitKey(0);
+    int x = 3;
+
+
     return 0;
 };
