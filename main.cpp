@@ -24,7 +24,7 @@ int main()
 
     cv::namedWindow("Project Picture", 1);
 
-    //bluring_image();
+
     std::cout << detectCircle() << std::endl;
     imshow( "Project Picture", img );
 
