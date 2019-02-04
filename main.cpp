@@ -3,10 +3,10 @@
 #include <opencv2/core/core.hpp>
 #include <cstdlib>
 #include <iostream>
-#include "src/initial.h"
-#include "src/DetectCircles.h"
-#include "src/image_bluring.h"
-#include "src/crud.h"
+#include "initial.h"
+#include "DetectCircles.h"
+#include "image_bluring.h"
+#include "crud.h"
 #include <time.h>
 
 cv::Mat img;
@@ -16,7 +16,7 @@ int v_gaussian = 0;
 
 int main()
 {
-    std::string imagePath = "..\\img\\cscsk.jpg";
+    std::string imagePath = "..\\img\\kek.png";
     img = cv::imread( imagePath, 1);
 
     if (!img.data) {
@@ -27,10 +27,12 @@ int main()
     cv::namedWindow("Project Picture", 1);
     clock_t start, end;
     readDataBase("../files/CircleDetectionDatabase.db");
+
     start = clock();
     int circleAmount = detectCircle(img);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
+    createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
 
     imshow( "Project Picture", img );
 
