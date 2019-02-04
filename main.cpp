@@ -3,10 +3,10 @@
 #include <opencv2/core/core.hpp>
 #include <cstdlib>
 #include <iostream>
-#include "initial.h"
-#include "DetectCircles.h"
-#include "image_bluring.h"
-#include "crud.h"
+#include "src/initial.h"
+#include "src/DetectCircles.h"
+#include "src/image_bluring.h"
+#include "src/crud.h"
 #include <time.h>
 
 cv::Mat img;
@@ -26,7 +26,7 @@ int main()
 
     cv::namedWindow("Project Picture", 1);
     clock_t start, end;
-
+    readDataBase("../files/CircleDetectionDatabase.db");
     start = clock();
     int circleAmount = detectCircle(img);
     end = clock();

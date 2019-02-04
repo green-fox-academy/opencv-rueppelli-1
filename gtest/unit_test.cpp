@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
-#include "initial.h"
+#include "../src/initial.h"
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
-#include "DetectCircles.h"
+#include "../src/DetectCircles.h"
 
 TEST(test_check, empty_test){
 
