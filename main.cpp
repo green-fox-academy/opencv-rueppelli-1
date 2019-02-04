@@ -40,7 +40,7 @@ int main()
     cv::waitKey(0);
 
     return 0;
-};
+}
 
 void gaussian(int, void *)
 {
