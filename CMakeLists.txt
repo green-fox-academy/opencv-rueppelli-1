@@ -18,10 +18,4 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 add_subdirectory(src)
 add_subdirectory(gtest)
 
-
-
-
-
-
-
 target_link_libraries(opencv-ruepelli-1 ${OpenCV_LIBS} project_files sqlite3::sqlite3)
