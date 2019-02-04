@@ -39,6 +39,7 @@ int result;
         }
         result = circles.size();
     }else{
+
         return -1;
     }
 
