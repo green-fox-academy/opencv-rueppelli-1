@@ -7,7 +7,6 @@
 
 #include "initial.h"
 #include "detect_circles.h"
-#include "image_bluring.h"
 #include "database_handler.h"
 
 cv::Mat img;
