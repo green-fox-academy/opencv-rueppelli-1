@@ -1,1 +1,1 @@
-add_library(project_files initial.h initial.cpp crud.cpp crud.h image_bluring.cpp image_bluring.h DetectCircles.cpp DetectCircles.h)
+add_library(project_files initial.h initial.cpp crud.cpp crud.h detect_circles.cpp detect_circles.h)
