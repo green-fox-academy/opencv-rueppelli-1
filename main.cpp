@@ -5,8 +5,10 @@
 #include <iostream>
 #include <time.h>
 
+#include "initial.h"
 #include "detect_circles.h"
-#include "crud.h"
+#include "image_bluring.h"
+#include "database_handler.h"
 
 cv::Mat img;
 cv::Mat smoothed_img;

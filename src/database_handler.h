@@ -1,7 +1,3 @@
-//
-// Created by Gé on 2019. 01. 30..
-//
-
 #ifndef OPENCV_RUEPELLI_1_CRUD_H
 #define OPENCV_RUEPELLI_1_CRUD_H
 
