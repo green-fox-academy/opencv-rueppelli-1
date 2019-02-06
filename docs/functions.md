@@ -1,8 +1,18 @@
-#Developers docs.
+# Developers docs.
 
-[ReadDataBase](#readDataBase) || [CreateRecord](#createRecord) || [deleteRecord](#deleteRecord) || [updateRecord](#updateRecord) || [selectRecords](#selectRecords)
+## database_handler.cpp
 
-## readDataBase
+[ReadDataBase](#readDataBase) || [CreateRecord](#createRecord) || [DeleteRecord](#deleteRecord) || [UpdateRecord](#updateRecord) || [SelectRecords](#selectRecords)
+
+## detect_circles.cpp
+
+[DetectCircle](#detectCircle)
+
+## main.cpp
+
+[BluringImage](#bluringImage)
+
+### readDataBase
 
 ```int readDataBase(std::string databasePath)```
 
@@ -13,7 +23,7 @@
   - purpose:
       - the function checks if the parameter database is opened
       
-## createRecord
+### createRecord
 
 ```int createRecord(std::string databasePath, std::string tableName, std::string path, double processingTime, int detectedCircles)```
 
@@ -28,7 +38,7 @@
    - purpose:
       - with the help of this function you can add new records to your own table - // path, processing time, detected circles //
       
-## deleteRecord
+### deleteRecord
 
 ```int deleteRecord(std::string databasePath, std::string tableName, int id)```
 
@@ -41,7 +51,7 @@
   - purpose:
       - with the help of this function you can delete records from your own table
       
-## updateRecord
+### updateRecord
 
 ```int updateRecord(std::string databasePath, std::string tableName, std::string userCmdAfterSet)```
 
@@ -54,11 +64,11 @@
   - purpose:
       - with the help of this function you can modify values in your table
       
-## selectRecords
+### selectRecords
 
 ```int selectRecords(std::string databasePath, std::string tableName, std::string chooseRecord)```
 
-   - parameters: 
+  - parameters: 
       - databasePath ( the database you want to select from )
       - tableName ( the table you want select from )
       - chooseRecord ( the record you want to choose from )
@@ -66,3 +76,22 @@
       - int ( 0 if the record is chosen successfully, 1 if any type of error occured )
   - purpose:
       - with the help of this function you can select records from the given table
+      
+      
+### detectCircles
+
+```int detectCircle(cv::Mat img)```
+
+   - parameters:
+      - img ( the picture you want to use )
+   - return type:
+      - int ( numbers of circles detected )
+   - purpose:
+      - this function detects the number of circles in the picture
+      
+### bluringImage
+
+```void bluring_image```
+
+   - purpose:
+      - this function can create trackbars
