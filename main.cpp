@@ -4,10 +4,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <time.h>
+#include <chrono>
 
 #include "initial.h"
 #include "detect_circles.h"
 #include "database_handler.h"
+#include "sorting.h"
 
 cv::Mat img;
 cv::Mat smoothed_img;
