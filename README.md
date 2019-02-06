@@ -1,7 +1,6 @@
 # === OpenCV - 1 - Rueppellii ===
 > made by Gergo Barta, Gabor Fodor and Fruzsina Vegh
 
-
 ## NOW
 Our tasks are now about we analize pictures, clear them and calculating their area, find their middle and give back
 the coordinates.

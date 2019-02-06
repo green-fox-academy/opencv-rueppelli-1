@@ -4,11 +4,11 @@
 #include <cstdlib>
 #include <iostream>
 #include <time.h>
-#include <sorting.h>
 
 #include "initial.h"
 #include "detect_circles.h"
 #include "database_handler.h"
+#include "sorting.h"
 
 cv::Mat img;
 cv::Mat smoothed_img;
@@ -21,6 +21,22 @@ void bluring_image();
 
 int main()
 {
+    int array[] = { 5, 3, 7, 14, 10, 6, 42 };
+    int size = sizeof(array)/ sizeof(array[0]);
+    insertion_sort(array, size, 1);
+    for (int i = 0; i < size; i++) {
+        std::cout << array[i] << " ";
+    }
+
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    std::vector<int> vector = { 5, 3, 7, 14, 10, 6, 42};
+    insertion_sort(vector, static_cast<int>(vector.size()), 1);
+    for (int j = 0; j < vector.size(); j++) {
+        std::cout << vector[j] << " ";
+    }
+  
     std::string imagePath = "..\\img\\ball.jpg";
     img = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
 
@@ -38,22 +54,6 @@ int main()
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
     createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
     imshow("Project Picture", img);
-
-    int array[] = { 5, 3, 7, 14, 10, 6, 42 };
-    int size = sizeof(array)/ sizeof(array[0]);
-    insertion_sort(array, size, 1);
-    for (int i = 0; i < size; i++) {
-        std::cout << array[i] << " ";
-    }
-
-    std::cout << std::endl;
-    std::cout << std::endl;
-
-    std::vector<int> vector = { 5, 3, 7, 14, 10, 6, 42};
-    insertion_sort(vector, static_cast<int>(vector.size()), 1);
-    for (int j = 0; j < vector.size(); j++) {
-        std::cout << vector[j] << " ";
-    }
 
     cv::waitKey(0);
 
