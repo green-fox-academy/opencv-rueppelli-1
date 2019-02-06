@@ -1,6 +1,6 @@
 #Developers docs.
 
-[ReadDataBase](#readDataBase) [CreateRecord](#createRecord)  [deleteRecord](#deleteRecord) 
+[ReadDataBase](#readDataBase) || [CreateRecord](#createRecord) || [deleteRecord](#deleteRecord) || [updateRecord](#updateRecord) || [selectRecords](#selectRecords)
 
 ## readDataBase
 
@@ -41,7 +41,7 @@
   - purpose:
       - with the help of this function you can delete records from your own table
       
-#updateRecord
+## updateRecord
 
 ```int updateRecord(std::string databasePath, std::string tableName, std::string userCmdAfterSet)```
 
@@ -54,7 +54,7 @@
   - purpose:
       - with the help of this function you can modify values in your table
       
-#selectRecords
+## selectRecords
 
 ```int selectRecords(std::string databasePath, std::string tableName, std::string chooseRecord)```
 
