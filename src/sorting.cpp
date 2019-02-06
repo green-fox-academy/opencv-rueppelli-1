@@ -178,10 +178,10 @@ void sortArray(int* array, int low, int high, int &counter, int order)
     }
 }
 
-int *insertion_sort(int *array, int size, int command)
+int *insertion_sort(int *array, int size, int &counter, int command)
 {
     auto start = cv::getTickCount();
-    int counter = 0;
+    counter = 0;
     if (command == 1) {
         for (int i = 1; i < size; i++) {
             int temp_var = array[i];
@@ -216,10 +216,10 @@ int *insertion_sort(int *array, int size, int command)
     return array;
 }
 
-std::vector<int> insertion_sort(std::vector<int> &vector, int size, int command)
+std::vector<int> insertion_sort(std::vector<int> &vector, int size, int &counter, int command)
 {
     auto start = cv::getTickCount();
-    int counter = 0;
+    counter = 0;
 
     if (command == 1) {
         for (int i = 1; i < size; i++) {
