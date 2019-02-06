@@ -1,8 +1,8 @@
 #Developers docs.
 
-[ReadDataBase](##readDataBase) [CreateRecord](##createRecord)  [deleteRecord](##deleteRecord)
+[ReadDataBase](#readDataBase) [CreateRecord](##createRecord)  [deleteRecord](##deleteRecord)
 
-##readDataBase
+###readDataBase
 
 ```int readDataBase(std::string databasePath)```
 
