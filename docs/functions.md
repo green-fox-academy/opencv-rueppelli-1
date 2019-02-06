@@ -1,8 +1,8 @@
 #Developers docs.
 
-[ReadDataBase](#readDataBase) [CreateRecord](##createRecord)  [deleteRecord](##deleteRecord)
+[ReadDataBase](#readDataBase) [CreateRecord](#createRecord)  [deleteRecord](#deleteRecord) 
 
-###readDataBase
+## readDataBase
 
 ```int readDataBase(std::string databasePath)```
 
@@ -13,7 +13,7 @@
   - purpose:
       - the function checks if the parameter database is opened
       
-##createRecord
+## createRecord
 
 ```int createRecord(std::string databasePath, std::string tableName, std::string path, double processingTime, int detectedCircles)```
 
@@ -28,7 +28,7 @@
    - purpose:
       - with the help of this function you can add new records to your own table - // path, processing time, detected circles //
       
-#deleteRecord
+## deleteRecord
 
 ```int deleteRecord(std::string databasePath, std::string tableName, int id)```
 
