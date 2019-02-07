@@ -10,9 +10,10 @@
 #include "detect_circles.h"
 #include "database_handler.h"
 #include "sorting.h"
+#include "remove_background.h"
 
-cv::Mat img;
-cv::Mat smoothed_img;
+cv::Mat image;
+cv::Mat dst;
 int v_median = 0;
 int v_gaussian = 0;
 
@@ -22,23 +23,32 @@ void bluring_image();
 
 int main()
 {
+    int x = 0;
+    int y = 0;
     std::string imagePath = "..\\img\\ball.jpg";
-    img = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
+    image = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
 
-    if (!img.data) {
+    if (!image.data) {
         std::cout << "Could not open or find the image" << std::endl;
         return -1;
     }
 
     cv::namedWindow("Project Picture", 1);
-    clock_t start, end;
+    /*clock_t start, end;
     readDataBase("../files/CircleDetectionDatabase.db");
     start = clock();
-    int circleAmount = detectCircle(img);
+    int circleAmount = detectCircle(image);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
-    //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
-    imshow("Project Picture", img);
+    createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);*/
+    imshow("Project Picture", image);
+
+    cv::namedWindow("Threshold", 1);
+    cv::moveWindow("Threshold", x += 50, y += y);
+    cv::moveWindow("Threshold INV", x += 50, y += y);
+
+    thresholding(image, dst);
+    thresholdingInv(image, dst);
 
     cv::waitKey(0);
 
@@ -47,14 +57,14 @@ int main()
 
 void gaussian(int, void *)
 {
-    GaussianBlur(img, smoothed_img, cv::Size(2 * v_gaussian + 1, 2 * v_gaussian + 1), v_gaussian);
-    imshow("Project Picture", smoothed_img);
+    GaussianBlur(image, dst, cv::Size(2 * v_gaussian + 1, 2 * v_gaussian + 1), v_gaussian);
+    imshow("Project Picture", dst);
 }
 
 void median(int, void *)
 {
-    cv::medianBlur(img, smoothed_img, 2 * v_median + 1);
-    imshow("Project Picture", smoothed_img);
+    cv::medianBlur(image, dst, 2 * v_median + 1);
+    imshow("Project Picture", dst);
 }
 
 void bluring_image ()
