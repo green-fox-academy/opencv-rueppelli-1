@@ -53,7 +53,7 @@ TEST(FastestSortingSteps, increasingArray)
     int quickCounter = 0;
 
     int* newSelectionSort = selectionSort(selectionArray, size, selectionCounter);
-    int* newInsertionSort = insertion_sort(insertionArray, size, insertionCounter);
+    int* newInsertionSort = insertionSort(insertionArray, size, insertionCounter);
     int* newQuickSort = quickSort(quickArray, 0, size-1, quickCounter);
 
 
@@ -83,7 +83,7 @@ TEST(FastestSortingSteps, decreasingArray)
     int quickCounter = 0;
 
     int* newSelectionSort = selectionSort(selectionArray, size, selectionCounter, 0);
-    int* newInsertionSort = insertion_sort(insertionArray, size, insertionCounter, 0);
+    int* newInsertionSort = insertionSort(insertionArray, size, insertionCounter, 0);
     int* newQuickSort = quickSort(quickArray, 0, size-1, quickCounter, 0);
 
 

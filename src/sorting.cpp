@@ -178,7 +178,7 @@ void sortArray(int* array, int low, int high, int &counter, int order)
     }
 }
 
-int *insertion_sort(int *array, int size, int &counter, int command)
+int *insertionSort(int *array, int size, int &counter, int command)
 {
     auto start = cv::getTickCount();
     counter = 0;
@@ -210,13 +210,13 @@ int *insertion_sort(int *array, int size, int &counter, int command)
 
     auto finish = cv::getTickCount();
     double duration = (finish - start) / cv::getTickFrequency();
-    std::cout << "Time taken by function: " << duration << " microseconds" << std::endl;
+   // std::cout << "Time taken by function: " << duration << " microseconds" << std::endl;
 
-    std::cout << "It was " << counter << " steps to the result." << std::endl;
+   // std::cout << "It was " << counter << " steps to the result." << std::endl;
     return array;
 }
 
-std::vector<int> insertion_sort(std::vector<int> &vector, int size, int &counter, int command)
+std::vector<int> insertionSort(std::vector<int> &vector, int size, int &counter, int command)
 {
     auto start = cv::getTickCount();
     counter = 0;
@@ -249,8 +249,8 @@ std::vector<int> insertion_sort(std::vector<int> &vector, int size, int &counter
 
     auto finish = cv::getTickCount();
     double duration = (finish - start) / cv::getTickFrequency();
-    std::cout << "Time taken by function: " << duration << " microseconds" << std::endl;
+  //  std::cout << "Time taken by function: " << duration << " microseconds" << std::endl;
 
-    std::cout << "It was " << counter << " steps to the result." << std::endl;
+  //  std::cout << "It was " << counter << " steps to the result." << std::endl;
     return vector;
 } 
