@@ -6,8 +6,6 @@
 #include <cstring>
 #include <opencv2/core/mat.hpp>
 #include <opencv2/opencv.hpp>
-//#include "../../../../../../sqlite3/include/sqlite3/sqlite3.h"
-
 
 static int callBack(void *NotUsed, int argc, char **argv, char **azColName);
 int readDataBase(std::string databasePath);
