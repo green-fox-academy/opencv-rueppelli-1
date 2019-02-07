@@ -11,7 +11,7 @@
 TEST(test_check, no_circle)
 {
 
-    cv::Mat img = cv::imread("../../src/purple.jpg",cv::IMREAD_GRAYSCALE);
+    cv::Mat img = cv::imread("../../image/purple.jpg",cv::IMREAD_GRAYSCALE);
 
     EXPECT_EQ(detectCircle(img), 0);
 }
@@ -19,7 +19,7 @@ TEST(test_check, no_circle)
 TEST(test_check, numerous_circle)
 {
 
-    cv::Mat img = cv::imread("../../src/ball.jpg", cv::IMREAD_GRAYSCALE);
+    cv::Mat img = cv::imread("../../image/ball.jpg", cv::IMREAD_GRAYSCALE);
 
     EXPECT_EQ(detectCircle(img), 3);
 }
@@ -27,7 +27,7 @@ TEST(test_check, numerous_circle)
 TEST(test_check, overlaying_circle)
 {
 
-    cv::Mat img = cv::imread("../../src/balls11.jpg", cv::IMREAD_GRAYSCALE);
+    cv::Mat img = cv::imread("../../image/balls11.jpg", cv::IMREAD_GRAYSCALE);
 
     EXPECT_EQ(detectCircle(img), 3);
 }
