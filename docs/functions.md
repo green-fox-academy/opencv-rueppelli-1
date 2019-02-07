@@ -84,10 +84,10 @@
       
 ### detectCircles
 
-```int detectCircle(cv::Mat img)```
+```int detectCircle(cv::Mat src)```
 
    - parameters:
-      - img ( the picture you want to use )
+      - src ( the picture you want to use )
    - return type:
       - int ( numbers of circles detected )
    - purpose:

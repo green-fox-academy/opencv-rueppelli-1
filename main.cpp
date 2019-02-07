@@ -11,50 +11,78 @@
 #include "database_handler.h"
 #include "sorting.h"
 
-cv::Mat img;
-cv::Mat smoothed_img;
+cv::Mat src;
+cv::Mat dst;
 int v_median = 0;
 int v_gaussian = 0;
 
 void gaussian(int, void *);
 void median(int, void *);
 void bluring_image();
+static void threshold_binary( int, void* );
+static void threshold_binary_inv( int, void* );
 
 int main()
 {
+    int x = 0;
+    int y = 0;
     std::string imagePath = "..\\img\\ball.jpg";
-    img = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
+    src = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
 
-    if (!img.data) {
+    if (!src.data) {
         std::cout << "Could not open or find the image" << std::endl;
         return -1;
     }
 
     cv::namedWindow("Project Picture", 1);
-    clock_t start, end;
+    /*clock_t start, end;
     readDataBase("../files/CircleDetectionDatabase.db");
     start = clock();
-    int circleAmount = detectCircle(img);
+    int circleAmount = detectCircle(src);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
-    //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
-    imshow("Project Picture", img);
+    createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);*/
+    imshow("Project Picture", src);
+
+    cv::namedWindow("Threshold", 1);
+    cv::moveWindow("Threshold", x += 50, y += y);
+    cv::moveWindow("Threshold INV", x += 50, y += y);
+    threshold_binary(0, nullptr);
+    threshold_binary_inv(0, nullptr);
 
     cv::waitKey(0);
 
     return 0;
 }
 
+static void threshold_binary( int, void* )
+{
+    int threshold_value = 110;
+    int threshold_type = 0;
+    int const max_binary_value = 255;
+    threshold( src, dst, threshold_value, max_binary_value, threshold_type );
+    imshow( "Threshold", dst );
+}
+
+static void threshold_binary_inv( int, void* )
+{
+    int threshold_value = 110;
+    int threshold_type = 1;
+    int const max_binary_value = 255;
+    threshold( src, dst, threshold_value, max_binary_value, threshold_type );
+    imshow( "Threshold INV", dst );
+}
+
 void gaussian(int, void *)
 {
-    GaussianBlur(img, smoothed_img, cv::Size(2 * v_gaussian + 1, 2 * v_gaussian + 1), v_gaussian);
-    imshow("Project Picture", smoothed_img);
+    GaussianBlur(src, dst, cv::Size(2 * v_gaussian + 1, 2 * v_gaussian + 1), v_gaussian);
+    imshow("Project Picture", dst);
 }
 
 void median(int, void *)
 {
-    cv::medianBlur(img, smoothed_img, 2 * v_median + 1);
-    imshow("Project Picture", smoothed_img);
+    cv::medianBlur(src, dst, 2 * v_median + 1);
+    imshow("Project Picture", dst);
 }
 
 void bluring_image ()
