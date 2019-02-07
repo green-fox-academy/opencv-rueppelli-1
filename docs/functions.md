@@ -124,9 +124,9 @@
       - sizeOfArray ( the size of the array - defined in main.cpp )
       - &counter ( counts the steps )
       - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1))
-    - return type:
+   - return type:
        - int* ( returns the sorted array )
-    - purpose:
+   - purpose:
       - the aim of this function is to sort the numbers of the array in descending or increasing order
        
    
@@ -134,14 +134,14 @@
 
 ```std::vector<int> insertion_sort(std::vector<int> &vector, int size, int &counter, int command)```
 
-- parameters: 
+  - parameters: 
       - &vector ( the vector you want to sort )
       - size ( size of the vector )
       - &counter ( counts the steps ) 
       - command ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
    - return type:
       - std::vector<int> ( returns the sorted vector )
-   - purpose:
+  - purpose:
       - the aim of this function is to sort the numbers of the vector in descending or increasing order
 
 
@@ -154,7 +154,37 @@
       - size ( the size of the array - defined in main.cpp )
       - &counter ( counts the steps )
       - command ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1))
-    - return type:
+   - return type:
        - int* ( returns the sorted array )
-     - purpose:
+   - purpose:
        - the aim of this function is to sort the numbers of the array in descending or increasing order
+
+### quickSortVector
+
+```std::vector<int> quickSort(std::vector<int> unsorted, int low, int high, int &counter, int order)```
+
+   - parameters: 
+      - unsorted ( the vector you want to sort )
+      - low ( used for recursion - value is always = 0 )
+      - high ( used for recursion - value is always 'size - 1' )
+      - &counter ( counts the steps )
+      - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
+   - return type:
+      - std::vector<int> ( returns the sorted vector )
+   - purpose:
+       - the aim of this function is to sort the numbers of the vector in descending or increasing order
+   
+### quickSortArray
+
+```int* quickSort(int* array, int low, int high, int &counter, int order)```
+
+   - parameters: 
+      - array ( the array you want to sort )
+      - low ( used for recursion - value is always = 0 )
+      - high ( used for recursion - value is always 'size - 1' )
+      - &counter ( counts the steps )
+      - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
+   - return type:
+      - int* ( returns the sorted array )
+   - purpose:
+      - the aim of this function is to sort the numbers of the array in descending or increasing order
