@@ -1,72 +1,51 @@
 # :warning:  :traffic_light:  :red_car:  === OpenCV - 1 - Rueppellii ===  :red_car:  :traffic_light:  :warning:
 > made by Gergo Barta, Gabor Fodor and Fruzsina Vegh
 
-## OUR MISSION  :oncoming_automobile: :camera: :computer:  :recycle:
-The purpose of the team is to help computers to understand the world as we see it. More precisely we are going to
-process pictures and videos from car Dash Cams and transport situations and try to make decisions based on that.
-These camera systems slowly but surely are getting a huge part in nowadays automobile industry (because only one
-camera can replace numerous sensors), this is why we are focusing only on transporting.
-For that we are going to use OpenCV to process the camera input with C++.
+## THE PROJECT
+We are working on a program, which can detect shapes and text on pictures, later on video records.
 
-On this week:
-Now we are building the framework of our project and getting acquainted with the opencv's mystery.
+We can already:
+ - [x] detect circles on pictures
+ - [x] find the middle of them and give back their coordinates
+ - [x] calculate their area's
+ - [x] use blur function to clean the images (gaussian, median)
+ - [x] manupulate with Thres Binary and Thres Binary INV functions
+ - [x] save the circles given data in SQLite database
+ - [x] justify our work with a lot testcases
+ - [ ] at the moment we are working algorithms which we use later in the phase
 
-## Table of contents
-- [OUR MISSION](#our-mission)
-- [BUILD STATUS](#build-status)
-- [TECHNOLOGIES](#technologies)
-- [THE PROJECT ITSELF](#the-project-itself)
-- [TESTS](#tests)
-- [REQUIREMENTS](#requirements)
-- [INSTALLATION AND SETUP](#installation-and-setup)
-- [HOW TO USE?](#how-to-use)
-- [YOU HAVE TROUBLES?](#you-have-troubles)
-- [LICENSE](#license)
-
-## BUILD STATUS
- - [ ] Reading different inputs for processing [in progress]
- - [ ] Applying filters and operations to pictures and videos [in progress]
- - [ ] Object detection
- - [ ] Text detection and character recognition
- - [ ] Traffic control police pose detection
- - [ ] Creating a driver helping HUD
- - [ ] Storing the usage in a database and use it to create metrics and statistics
-
-## TECHNOLOGIES
-Project is created with:
+We use the following technologies:
 * __C++14__
 * __SQLite3__
 * __OpenCV library__
-* __OpenPose__
 * __Google Test__
 
+## Table of contents
+- [THE PROJECT](#the-project)
+- [THE PROJECT ITSELF](#the-project-itself)
+- [INSTALLATION AND SETUP](#installation-and-setup)
+
+
 ## THE PROJECT ITSELF
- - pictures...
-> coming soon...
+ - Pictures
+![grey circle detected](img/detect_circles.png) ![blured](img/detect_circles_2.png) ![threshold](img/detect_circles_3.png)
 
- - [function database] ( link ahol van a functions.md )
-> coming soon...
-
-## TESTS
-
-
-## REQUIREMENTS
-
+ - [Function we used] (#docs/functions.md)
 
 
 ## INSTALLATION AND SETUP
  Things you will need:
- 
+
  - [Jetbrains CLion](https://www.jetbrains.com/clion/)
  - [MinGW-w64](https://drive.google.com/open?id=1tNNNxxlnYyeeiGAozp307DbwI1kel2AQ)
  - [CMake](https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-win64-x64.msi)
  - [OpenCV 4.0.1](https://github.com/opencv/opencv/archive/4.0.1.zip)
  - [SQLite3](https://drive.google.com/open?id=1fUCQl_v66Zl4Wb51pFHGSVmeZyfMp83z)
  - [Google Test](https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/testing/env-setup/cpp/resource/googletest.zip)
- 
+
 Building OpenCV with CMake:
  - Download the Mingw-w64 linked above. It may or may not work with other version.
- - Extract the file and set the ./x86_64-8.1.0-posix-sjlj-rt_v6-rev0/mingw64/bin directory in the 
+ - Extract the file and set the ./x86_64-8.1.0-posix-sjlj-rt_v6-rev0/mingw64/bin directory in the
  PATH environment variable. (You might need to restart your machine)
  - Extract the OpenCV archive
  - Open CMake
@@ -108,13 +87,3 @@ Building OpenCV with CMake:
  - Copy all the DLL files to the cmake-build-debug folder and the gtest folder found in cmake-build-debug
  - Enjoy...
 
-## HOW TO USE?
-
-
-
-## YOU HAVE TROUBLES?
-
-
-
-## LICENSE
-Copyright 2019 © .OCV-R3.
