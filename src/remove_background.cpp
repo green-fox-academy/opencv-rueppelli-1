@@ -12,12 +12,12 @@ cv::Mat removeLightWithDivision(cv::Mat image, cv::Mat pattern)
 
 void thresholding (cv::Mat image, cv::Mat dst)
 {
-    cv::threshold( image, dst, 110, 255, cv::THRESH_BINARY );
+    cv::threshold( image, dst, 130, 212, cv::THRESH_BINARY );
     imshow( "Threshold", dst );
 }
 
 void thresholdingInv (cv::Mat image, cv::Mat dst)
 {
-    cv::threshold( image, dst, 110, 255, cv::THRESH_BINARY_INV );
+    cv::threshold( image, dst, 212, 100, cv::THRESH_BINARY_INV );
     imshow( "Threshold INV", dst );
 }

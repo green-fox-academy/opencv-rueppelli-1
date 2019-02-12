@@ -25,7 +25,7 @@ int main()
 {
     int x = 0;
     int y = 0;
-    std::string imagePath = "..\\img\\ball.jpg";
+    std::string imagePath = "..\\img\\balls11.jpg";
     image = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
 
     if (!image.data) {
@@ -34,21 +34,23 @@ int main()
     }
 
     cv::namedWindow("Project Picture", 1);
-    /*clock_t start, end;
+    clock_t start, end;
     readDataBase("../files/CircleDetectionDatabase.db");
     start = clock();
     int circleAmount = detectCircle(image);
     end = clock();
-    double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
+    /*double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
     createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);*/
     imshow("Project Picture", image);
 
     cv::namedWindow("Threshold", 1);
-    cv::moveWindow("Threshold", x += 50, y += y);
-    cv::moveWindow("Threshold INV", x += 50, y += y);
+    cv::moveWindow("Threshold", x += 20, y += 20);
+    cv::moveWindow("Threshold INV", x += 40, y += 40);
 
     thresholding(image, dst);
     thresholdingInv(image, dst);
+
+    detectCircle(image);
 
     cv::waitKey(0);
 
