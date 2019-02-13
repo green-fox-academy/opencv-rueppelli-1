@@ -5,7 +5,6 @@
 #include <iostream>
 #include <time.h>
 
-#include "initial.h"
 #include "detect_circles.h"
 #include "database_handler.h"
 
@@ -20,6 +19,10 @@ void bluring_image();
 
 int main()
 {
+
+    int x = 0;
+    int y = 0;
+
     std::string imagePath = "..\\img\\ball.jpg";
     img = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
 
@@ -35,8 +38,17 @@ int main()
     int circleAmount = detectCircle(img);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
-    createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
+    //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);*/
     imshow("Project Picture", img);
+
+    cv::namedWindow("Threshold", 1);
+    cv::moveWindow("Threshold", x += 20, y += 20);
+    cv::moveWindow("Threshold INV", x += 40, y += 40);
+
+    thresholding(img, dst);
+    thresholdingInv(img, dst);
+
+    detectCircle(image);
 
     cv::waitKey(0);
 
