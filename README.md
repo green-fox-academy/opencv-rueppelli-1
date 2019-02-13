@@ -27,11 +27,15 @@ We use the following technologies:
 
 
 ## THE PROJECT ITSELF
+ - [Functions we used](docs/functions.md)
+
  - Pictures
 
-![](img/detect_circles.PNG) ![](img/detect_circles_2.PNG) ![](img/detect_circles_3.PNG)
+![detected circles with coordinates and area](img/detect_circles.PNG)
+![blured image](img/detect_circles_2.PNG)
+![threshold image](img/detect_circles_3.PNG)
 
- - [Functions we used](docs/functions.md)
+
 
 
 ## INSTALLATION AND SETUP
