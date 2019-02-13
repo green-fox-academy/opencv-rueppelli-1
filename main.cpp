@@ -5,7 +5,6 @@
 #include <iostream>
 #include <time.h>
 
-#include "initial.h"
 #include "detect_circles.h"
 #include "database_handler.h"
 

@@ -1,7 +1,7 @@
 #ifndef OPENCV_RUEPELLI_1_CRUD_H
 #define OPENCV_RUEPELLI_1_CRUD_H
 
-//#include <sqlite3/sqlite3.h>
+#include <sqlite3/sqlite3.h>
 #include <iostream>
 #include <cstring>
 #include <opencv2/core/mat.hpp>
