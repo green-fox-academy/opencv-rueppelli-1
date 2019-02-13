@@ -30,10 +30,12 @@ We use the following technologies:
  - [Functions we used](docs/functions.md)
 
  - Pictures
-
-![detected circles with coordinates and area](img/detect_circles.PNG)
-![blured image](img/detect_circles_2.PNG)
-![threshold image](img/detect_circles_3.PNG)
+    - detected circles with coordinates and area :
+    ![detected circles with coordinates and area](img/detect_circles.PNG)
+    - bluring :
+    ![blured image](img/detect_circles_2.PNG)
+    - thresholding :
+    ![threshold image](img/detect_circles_3.PNG)
 
 
 
