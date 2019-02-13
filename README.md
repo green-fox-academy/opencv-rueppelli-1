@@ -27,10 +27,20 @@ We use the following technologies:
 
 
 ## THE PROJECT ITSELF
- - Pictures
-![grey circle detected](img/detect_circles.png) ![blured](img/detect_circles_2.png) ![threshold](img/detect_circles_3.png)
+ - [Functions we used](docs/functions.md)
 
- - [Function we used] (#docs/functions.md)
+ - Pictures
+    - detected circles with coordinates and area :
+
+    ![detected circles with coordinates and area](img/detect_circles.PNG)
+    - bluring :
+
+    ![blured image](img/detect_circles_2.PNG)
+    - thresholding :
+    
+    ![threshold image](img/detect_circles_3.PNG)
+
+
 
 
 ## INSTALLATION AND SETUP
