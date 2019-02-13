@@ -253,4 +253,151 @@ std::vector<int> insertionSort(std::vector<int> vector, int size, int &counter, 
 
   //  std::cout << "It was " << counter << " steps to the result." << std::endl;
     return vector;
-} 
+}
+
+void merge(int* array, int low, int middle, int high, int order)
+{
+    int i;
+    int j;
+    int k;
+
+    int size1 = middle - low + 1;
+    int size2 = high - middle;
+
+    int temp1[size1];
+    int temp2[size2];
+
+    for(i = 0; i < size1; i++ ){
+        temp1[i] = array[low + i];
+    }
+    for(j = 0; j < size2; j++){
+        temp2[j] = array[middle + 1 + j];
+    }
+
+    i = 0;
+    j = 0;
+    k = low;
+    if(order == 1) {
+
+        while (i < size1 && j < size2) {
+            if (temp1[i] <= temp2[j]) {
+                array[k] = temp1[i];
+                i++;
+            } else {
+                array[k] = temp2[j];
+                j++;
+            }
+            k++;
+        }
+    }else{
+        while (i < size1 && j < size2) {
+            if (temp1[i] >= temp2[j]) {
+                array[k] = temp1[i];
+                i++;
+            } else {
+                array[k] = temp2[j];
+                j++;
+            }
+            k++;
+        }
+    }
+    while (i < size1)
+    {
+        array[k] = temp1[i];
+        i++;
+        k++;
+    }
+
+    while (j < size2)
+    {
+        array[k] = temp2[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(int* array, int low, int high, int order)
+{
+    if(low < high)
+    {
+        int middle = low+(high-low)/2;
+
+        mergeSort(array, low, middle, order);
+        mergeSort(array, middle+1, high, order);
+
+        merge(array, low, middle, high, order);
+    }
+}
+void merge(std::vector<int> &vector, int low, int middle, int high, int order)
+{
+    int i;
+    int j;
+    int k;
+
+    int size1 = middle - low + 1;
+    int size2 = high - middle;
+
+    int temp1[size1];
+    int temp2[size2];
+
+    for(i = 0; i < size1; i++ ){
+        temp1[i] = vector[low + i];
+    }
+    for(j = 0; j < size2; j++){
+        temp2[j] = vector[middle + 1 + j];
+    }
+
+    i = 0;
+    j = 0;
+    k = low;
+    if(order == 1) {
+
+        while (i < size1 && j < size2) {
+            if (temp1[i] <= temp2[j]) {
+                vector[k] = temp1[i];
+                i++;
+            } else {
+                vector[k] = temp2[j];
+                j++;
+            }
+            k++;
+        }
+    }else{
+        while (i < size1 && j < size2) {
+            if (temp1[i] >= temp2[j]) {
+                vector[k] = temp1[i];
+                i++;
+            } else {
+                vector[k] = temp2[j];
+                j++;
+            }
+            k++;
+        }
+    }
+    while (i < size1)
+    {
+        vector[k] = temp1[i];
+        i++;
+        k++;
+    }
+
+    while (j < size2)
+    {
+        vector[k] = temp2[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(std::vector<int> &vector, int low, int high, int order)
+{
+    if(low < high)
+    {
+        int middle = low+(high-low)/2;
+
+        mergeSort(vector, low, middle, order);
+        mergeSort(vector, middle+1, high, order);
+
+        merge(vector, low, middle, high, order);
+    }
+}
