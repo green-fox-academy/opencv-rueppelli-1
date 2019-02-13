@@ -29,11 +29,11 @@ We use the following technologies:
 ## THE PROJECT ITSELF
  - Pictures
 
-[](img/detect_circles.PNG)
-[](./img/detect_circles_2.png)
+![](img/detect_circles.PNG)
+![](img/detect_circles_2.png)
 ![](./img/detect_circles_3.png)
 
- - [Function we used](docs/functions.md)
+ - [Functions we used](docs/functions.md)
 
 
 ## INSTALLATION AND SETUP
