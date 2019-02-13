@@ -7,6 +7,8 @@
 
 #include "detect_circles.h"
 #include "database_handler.h"
+#include "remove_background.h"
+#include "sorting.h"
 
 cv::Mat img;
 cv::Mat smoothed_img;
@@ -33,22 +35,12 @@ int main()
 
     cv::namedWindow("Project Picture", 1);
     clock_t start, end;
-    readDataBase("../files/CircleDetectionDatabase.db");
     start = clock();
     int circleAmount = detectCircle(img);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
     //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);*/
     imshow("Project Picture", img);
-
-    cv::namedWindow("Threshold", 1);
-    cv::moveWindow("Threshold", x += 20, y += 20);
-    cv::moveWindow("Threshold INV", x += 40, y += 40);
-
-    thresholding(img, dst);
-    thresholdingInv(img, dst);
-
-    detectCircle(image);
 
     cv::waitKey(0);
 

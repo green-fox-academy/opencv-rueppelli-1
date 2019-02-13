@@ -10,5 +10,7 @@ cv::Mat removeLight(cv::Mat image, cv::Mat pattern);
 cv::Mat removeLightWithDivision(cv::Mat image, cv::Mat pattern);
 void thresholding (cv::Mat image, cv::Mat dst);
 void thresholdingInv (cv::Mat image, cv::Mat dst);
+cv::Mat createLightPattern(cv::Mat image);
+void sharpening(cv::Mat image, cv::Mat dst);
 
 #endif //OPENCV_RUEPELLI_1_REMOVE_BACKGROUND_H
