@@ -28,9 +28,10 @@ We use the following technologies:
 
 ## THE PROJECT ITSELF
  - Pictures
-![grey circle detected](img/detect_circles.png) ![blured](img/detect_circles_2.png) ![threshold](img/detect_circles_3.png)
 
- - [Function we used] (#docs/functions.md)
+![](./img/detect_circles.png) ![](./img/detect_circles_2.png) ![](./img/detect_circles_3.png)
+
+ - [Function we used] (./docs/functions.md)
 
 
 ## INSTALLATION AND SETUP
