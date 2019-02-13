@@ -8,7 +8,7 @@
 #include <opencv2/core/utility.hpp>
 
 int* insertionSort(int *array, int size, int &counter, int command = 1);
-std::vector<int> insertionSort(std::vector<int>& vector, int size, int &counter, int command = 1);
+std::vector<int> insertionSort(std::vector<int> vector, int size, int &counter, int command = 1);
 
 void sortVector(std::vector<int> &unsorted, int low, int high, int &counter, int order = 1);
 void sortArray(int* array, int low, int high, int &counter, int order = 1);

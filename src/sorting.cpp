@@ -216,7 +216,7 @@ int *insertionSort(int *array, int size, int &counter, int command)
     return array;
 }
 
-std::vector<int> insertionSort(std::vector<int> &vector, int size, int &counter, int command)
+std::vector<int> insertionSort(std::vector<int> vector, int size, int &counter, int command)
 {
     auto start = cv::getTickCount();
     counter = 0;
