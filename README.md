@@ -86,4 +86,3 @@ Building OpenCV with CMake:
  - In your OpenCV install directory, locate ./install/x64/mingw/bin
  - Copy all the DLL files to the cmake-build-debug folder and the gtest folder found in cmake-build-debug
  - Enjoy...
-
