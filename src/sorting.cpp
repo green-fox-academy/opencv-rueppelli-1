@@ -255,7 +255,7 @@ std::vector<int> insertionSort(std::vector<int> vector, int size, int &counter, 
     return vector;
 }
 
-void merge(int* array, int low, int middle, int high, int order)
+void merge(int* array, int low, int middle, int high, int &counter, int order)
 {
     int i;
     int j;
@@ -283,9 +283,11 @@ void merge(int* array, int low, int middle, int high, int order)
             if (temp1[i] <= temp2[j]) {
                 array[k] = temp1[i];
                 i++;
+                counter++;
             } else {
                 array[k] = temp2[j];
                 j++;
+                counter++;
             }
             k++;
         }
@@ -294,9 +296,11 @@ void merge(int* array, int low, int middle, int high, int order)
             if (temp1[i] >= temp2[j]) {
                 array[k] = temp1[i];
                 i++;
+                counter++;
             } else {
                 array[k] = temp2[j];
                 j++;
+                counter++;
             }
             k++;
         }
@@ -306,6 +310,7 @@ void merge(int* array, int low, int middle, int high, int order)
         array[k] = temp1[i];
         i++;
         k++;
+        counter++;
     }
 
     while (j < size2)
@@ -313,22 +318,23 @@ void merge(int* array, int low, int middle, int high, int order)
         array[k] = temp2[j];
         j++;
         k++;
+        counter++;
     }
 }
 
-void mergeSort(int* array, int low, int high, int order)
+void mergeSortInit(int* array, int low, int high, int &counter, int order)
 {
     if(low < high)
     {
         int middle = low+(high-low)/2;
 
-        mergeSort(array, low, middle, order);
-        mergeSort(array, middle+1, high, order);
+        mergeSortInit(array, low, middle, counter, order);
+        mergeSortInit(array, middle+1, high, counter, order);
 
-        merge(array, low, middle, high, order);
+        merge(array, low, middle, high, counter, order);
     }
 }
-void merge(std::vector<int> &vector, int low, int middle, int high, int order)
+void merge(std::vector<int> &vector, int low, int middle, int high, int &counter, int order)
 {
     int i;
     int j;
@@ -356,9 +362,11 @@ void merge(std::vector<int> &vector, int low, int middle, int high, int order)
             if (temp1[i] <= temp2[j]) {
                 vector[k] = temp1[i];
                 i++;
+                counter++;
             } else {
                 vector[k] = temp2[j];
                 j++;
+                counter++;
             }
             k++;
         }
@@ -367,9 +375,11 @@ void merge(std::vector<int> &vector, int low, int middle, int high, int order)
             if (temp1[i] >= temp2[j]) {
                 vector[k] = temp1[i];
                 i++;
+                counter++;
             } else {
                 vector[k] = temp2[j];
                 j++;
+                counter++;
             }
             k++;
         }
@@ -379,6 +389,7 @@ void merge(std::vector<int> &vector, int low, int middle, int high, int order)
         vector[k] = temp1[i];
         i++;
         k++;
+        counter++;
     }
 
     while (j < size2)
@@ -386,18 +397,33 @@ void merge(std::vector<int> &vector, int low, int middle, int high, int order)
         vector[k] = temp2[j];
         j++;
         k++;
+        counter++;
     }
 }
 
-void mergeSort(std::vector<int> &vector, int low, int high, int order)
+void mergeSortInit(std::vector<int> &vector, int low, int high, int &counter, int order)
 {
     if(low < high)
     {
         int middle = low+(high-low)/2;
 
-        mergeSort(vector, low, middle, order);
-        mergeSort(vector, middle+1, high, order);
+        mergeSortInit(vector, low, middle, counter, order);
+        mergeSortInit(vector, middle+1, high, counter, order);
 
-        merge(vector, low, middle, high, order);
+        merge(vector, low, middle, high, counter, order);
     }
+}
+
+std::vector<int> MergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order)
+{
+    std::vector<int> sorted = unsorted;
+    mergeSortInit(sorted, low, high, counter, order);
+    return sorted;
+}
+
+int* MergeSort(int* unsorted, int low, int high, int &counter, int order)
+{
+    int* sorted = unsorted;
+    mergeSortInit(sorted, low, high, counter, order);
+    return sorted;
 }
