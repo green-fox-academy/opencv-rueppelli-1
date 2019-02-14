@@ -13,6 +13,7 @@
 
 cv::Mat img;
 cv::Mat smoothed_img;
+cv::Mat shapes;
 int v_median = 0;
 int v_gaussian = 0;
 
@@ -27,12 +28,30 @@ int main()
     int y = 0;
 
     std::string imagePath = "..\\img\\ball.jpg";
+    std::string shapePath = "../img/shapes.jpg";
     img = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
+    shapes = cv::imread(shapePath, cv::IMREAD_GRAYSCALE);
+
 
     if (!img.data) {
         std::cout << "Could not open or find the image" << std::endl;
         return -1;
     }
+
+    cv::namedWindow("shapes", cv::WINDOW_AUTOSIZE);
+    cv::imshow("shapes", shapes);
+    cv::waitKey();
+    cv::Mat pattern = createLightPattern(shapes);
+    shapes = removeLight(shapes, pattern);
+    cv::imshow("shapes", shapes);
+    cv::waitKey();
+    thresholding(shapes, shapes);
+    cv::imshow("shapes", shapes);
+    cv::waitKey();
+    shapes = segmentationStats(shapes);
+    cv::imshow("shapes", shapes);
+    cv::waitKey();
+
 
     cv::namedWindow("Project Picture", 1);
     clock_t start, end;
