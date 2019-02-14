@@ -22,8 +22,11 @@ void merge(int* array, int low, int middle, int high, int &counter, int order);
 void mergeSortInit(int* array, int low, int high, int &counter, int order = 1);
 void merge(std::vector<int> &vector, int low, int middle, int high, int &counter, int order);
 void mergeSortInit(std::vector<int> &vector, int low, int high, int &counter, int order = 1);
-std::vector<int> MergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order);
-int* MergeSort(int* unsorted, int low, int high, int &counter, int order);
+std::vector<int> mergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order);
+int* mergeSort(int *unsorted, int low, int high, int &counter, int order);
+
+int* shellSort(int* array, int size, int &counter, int command);
+std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int command);
 
 
 #endif //OPENCV_RUEPELLI_1_SORTING_H
