@@ -414,16 +414,83 @@ void mergeSortInit(std::vector<int> &vector, int low, int high, int &counter, in
     }
 }
 
-std::vector<int> MergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order)
+std::vector<int> mergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order)
 {
     std::vector<int> sorted = unsorted;
     mergeSortInit(sorted, low, high, counter, order);
     return sorted;
 }
 
-int* MergeSort(int* unsorted, int low, int high, int &counter, int order)
+int* mergeSort(int *unsorted, int low, int high, int &counter, int order)
 {
     int* sorted = unsorted;
     mergeSortInit(sorted, low, high, counter, order);
     return sorted;
+}
+
+int* shellSort(int* array, int size, int &counter, int command)
+{
+    auto start = cv::getTickCount();
+    counter = 0;
+    int i, j, shell, temp_array;
+    shell = size/2;
+
+    while(shell > 0) {
+        i = shell;
+        while(i < size) {
+            temp_array = array[i];
+
+            for(j = i; (j >= shell) && (array[j - shell] > temp_array); j -=shell) {
+                array[j] = array[j - shell];
+                counter ++;
+            }
+            array[j] = temp_array;
+            i++;
+            counter ++;
+        }
+        shell = shell / 2;
+    }
+
+    if (command == 0){
+        std::reverse(array, array + size);
+        counter++;
+    }
+
+    auto finish = cv::getTickCount();
+    double duration = (finish - start) / cv::getTickFrequency();
+
+    return array;
+}
+
+std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int command)
+{
+    auto start = cv::getTickCount();
+    counter = 0;
+    int i, j, shell, tempVector;
+    shell = size/2;
+
+    while(shell > 0) {
+        i = shell;
+        while(i < size) {
+            tempVector = vector[i];
+
+            for(j = i; (j >= shell) && (vector[j - shell] > tempVector); j -=shell) {
+                vector[j] = vector[j - shell];
+                counter ++;
+            }
+            vector[j] = tempVector;
+            i++;
+            counter ++;
+        }
+        shell = shell / 2;
+    }
+
+    if (command == 0){
+        std::reverse(vector.begin(),vector.end());
+        counter++;
+    }
+
+    auto finish = cv::getTickCount();
+    double duration = (finish - start) / cv::getTickFrequency();
+    return vector;
 }
