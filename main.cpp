@@ -9,6 +9,7 @@
 #include "database_handler.h"
 #include "remove_background.h"
 #include "sorting.h"
+#include "histogram.h"
 
 cv::Mat img;
 cv::Mat smoothed_img;
