@@ -18,9 +18,12 @@ int* quickSort(int* array, int low, int high, int &counter, int order = 1);
 std::vector<int> selectionSort(std::vector<int> myVector, int &counter, int order = 1);
 int* selectionSort(int array[], int sizeOfArray, int &counter, int order = 1);
 
-void merge(int* array, int low, int middle, int high, int order);
-void mergeSort(int* array, int low, int high, int order = 1);
-void merge(std::vector<int> &vector, int low, int middle, int high, int order);
-void mergeSort(std::vector<int> &vector, int low, int high, int order = 1);
+void merge(int* array, int low, int middle, int high, int &counter, int order);
+void mergeSortInit(int* array, int low, int high, int &counter, int order = 1);
+void merge(std::vector<int> &vector, int low, int middle, int high, int &counter, int order);
+void mergeSortInit(std::vector<int> &vector, int low, int high, int &counter, int order = 1);
+std::vector<int> MergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order);
+int* MergeSort(int* unsorted, int low, int high, int &counter, int order);
+
 
 #endif //OPENCV_RUEPELLI_1_SORTING_H
