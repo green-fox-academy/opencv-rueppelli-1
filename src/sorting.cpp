@@ -43,18 +43,18 @@ int* selectionSort(int myArray[], int sizeOfArray, int &counter, int order)
 std::vector<int> quickSort(std::vector<int> unsorted, int low, int high, int &counter, int order)
 {
     std::vector<int> sorted = unsorted;
-    sortVector(sorted, low, high, counter, order);
+    quickSortVector(sorted, low, high, counter, order);
     return sorted;
 }
 
 int* quickSort(int* array, int low, int high, int &counter, int order)
 {
     int* sorted = array;
-    sortArray(sorted, low, high, counter, order);
+    quickSortArray(sorted, low, high, counter, order);
     return sorted;
 }
 
-void sortVector(std::vector<int> &unsorted, int low, int high, int &counter, int order)
+void quickSortVector(std::vector<int> &unsorted, int low, int high, int &counter, int order)
 {
     if(order == 1) {
         int i = low;
@@ -77,10 +77,10 @@ void sortVector(std::vector<int> &unsorted, int low, int high, int &counter, int
             }
         }
         if (i < high) {
-            sortVector(unsorted, i, high, counter, 1);
+            quickSortVector(unsorted, i, high, counter, 1);
         }
         if (j > low) {
-            sortVector(unsorted, low, j, counter, 1);
+            quickSortVector(unsorted, low, j, counter, 1);
         }
     }else if(order == 0){
         int i = low;
@@ -103,15 +103,15 @@ void sortVector(std::vector<int> &unsorted, int low, int high, int &counter, int
             }
         }
         if (j > low) {
-             sortVector(unsorted, low, j, counter, 0);
+            quickSortVector(unsorted, low, j, counter, 0);
         }
         if (i < high) {
-             sortVector(unsorted, i, high, counter, 0);
+            quickSortVector(unsorted, i, high, counter, 0);
         }
     }
 }
 
-void sortArray(int* array, int low, int high, int &counter, int order)
+void quickSortArray(int *array, int low, int high, int &counter, int order)
 {
     if (order == 1) {
         int i = low;
@@ -138,10 +138,10 @@ void sortArray(int* array, int low, int high, int &counter, int order)
 
         }
         if (j > low) {
-            sortArray(array, low, j, counter, order);
+            quickSortArray(array, low, j, counter, order);
         }
         if (i < high) {
-            sortArray(array, i, high, counter, order);
+            quickSortArray(array, i, high, counter, order);
         }
     } else if (order == 0) {
         int i = low;
@@ -168,13 +168,13 @@ void sortArray(int* array, int low, int high, int &counter, int order)
 
         }
         if (j > low) {
-            sortArray(array, low, j, counter, order);
+            quickSortArray(array, low, j, counter, order);
         }
         if (i < high) {
-            sortArray(array, i, high, counter, order);
+            quickSortArray(array, i, high, counter, order);
         }
     }else{
-        return sortArray(array, low, high, counter, 1);
+        return quickSortArray(array, low, high, counter, 1);
     }
 }
 
@@ -428,66 +428,89 @@ int* mergeSort(int *unsorted, int low, int high, int &counter, int order)
     return sorted;
 }
 
-int* shellSort(int* array, int size, int &counter, int command)
-{
+int *shellSort(int *array, int size, int &counter, int command) {
     auto start = cv::getTickCount();
     counter = 0;
     int i, j, shell, temp_array;
-    shell = size/2;
+    shell = size / 2;
 
-    while(shell > 0) {
-        i = shell;
-        while(i < size) {
-            temp_array = array[i];
+    if (command == 1) {
+        while (shell > 0) {
+            i = shell;
+            while (i < size) {
+                temp_array = array[i];
 
-            for(j = i; (j >= shell) && (array[j - shell] > temp_array); j -=shell) {
-                array[j] = array[j - shell];
-                counter ++;
+                for (j = i; (j >= shell) && (array[j - shell] > temp_array); j -= shell) {
+                    array[j] = array[j - shell];
+                    counter++;
+                }
+                array[j] = temp_array;
+                i++;
+                counter++;
             }
-            array[j] = temp_array;
-            i++;
-            counter ++;
+            shell = shell / 2;
         }
-        shell = shell / 2;
-    }
+    } else if (command == 0) {
+        while (shell > 0) {
+            i = shell;
+            while (i < size) {
+                temp_array = array[i];
 
-    if (command == 0){
-        std::reverse(array, array + size);
-        counter++;
+                for (j = i; (j >= shell) && (array[j - shell] < temp_array); j -= shell) {
+                    array[j] = array[j - shell];
+                    counter++;
+                }
+                array[j] = temp_array;
+                i++;
+                counter++;
+            }
+            shell = shell / 2;
+        }
     }
 
     auto finish = cv::getTickCount();
     double duration = (finish - start) / cv::getTickFrequency();
-
     return array;
 }
 
-std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int command)
-{
+std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int command) {
     auto start = cv::getTickCount();
     counter = 0;
     int i, j, shell, tempVector;
-    shell = size/2;
+    shell = size / 2;
 
-    while(shell > 0) {
-        i = shell;
-        while(i < size) {
-            tempVector = vector[i];
+    if (command == 1) {
+        while (shell > 0) {
+            i = shell;
+            while (i < size) {
+                tempVector = vector[i];
 
-            for(j = i; (j >= shell) && (vector[j - shell] > tempVector); j -=shell) {
-                vector[j] = vector[j - shell];
-                counter ++;
+                for (j = i; (j >= shell) && (vector[j - shell] > tempVector); j -= shell) {
+                    vector[j] = vector[j - shell];
+                    counter++;
+                }
+                vector[j] = tempVector;
+                i++;
+                counter++;
             }
-            vector[j] = tempVector;
-            i++;
-            counter ++;
+            shell = shell / 2;
         }
-        shell = shell / 2;
-    }
+    } else if (command == 0) {
+        while (shell > 0) {
+            i = shell;
+            while (i < size) {
+                tempVector = vector[i];
 
-    if (command == 0){
-        std::reverse(vector.begin(),vector.end());
-        counter++;
+                for (j = i; (j >= shell) && (vector[j - shell] < tempVector); j -= shell) {
+                    vector[j] = vector[j - shell];
+                    counter++;
+                }
+                vector[j] = tempVector;
+                i++;
+                counter++;
+            }
+            shell = shell / 2;
+        }
     }
 
     auto finish = cv::getTickCount();
