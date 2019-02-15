@@ -38,7 +38,7 @@ int main()
         return -1;
     }
 
-    cv::namedWindow("shapes", cv::WINDOW_AUTOSIZE);
+    /*cv::namedWindow("shapes", cv::WINDOW_AUTOSIZE);
     cv::imshow("shapes", shapes);
     cv::waitKey();
     cv::Mat pattern = createLightPattern(shapes);
@@ -59,8 +59,8 @@ int main()
     int circleAmount = detectCircle(img);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
-    //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);*/
-    imshow("Project Picture", img);
+    //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
+    imshow("Project Picture", img);*/
 
     cv::waitKey(0);
 

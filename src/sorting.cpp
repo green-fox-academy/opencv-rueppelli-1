@@ -210,9 +210,6 @@ int *insertionSort(int *array, int size, int &counter, int command)
 
     auto finish = cv::getTickCount();
     double duration = (finish - start) / cv::getTickFrequency();
-   // std::cout << "Time taken by function: " << duration << " microseconds" << std::endl;
-
-   // std::cout << "It was " << counter << " steps to the result." << std::endl;
     return array;
 }
 
@@ -249,9 +246,6 @@ std::vector<int> insertionSort(std::vector<int> vector, int size, int &counter, 
 
     auto finish = cv::getTickCount();
     double duration = (finish - start) / cv::getTickFrequency();
-  //  std::cout << "Time taken by function: " << duration << " microseconds" << std::endl;
-
-  //  std::cout << "It was " << counter << " steps to the result." << std::endl;
     return vector;
 }
 
