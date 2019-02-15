@@ -286,3 +286,93 @@ TEST(InsertionSortTest, decreasingArray)
         EXPECT_EQ(insertionArray[k], newInsertionArray[k]);
     }
 }
+
+TEST(MergeSortTest, increasingArray)
+{
+    srand(time(nullptr));
+    int size = rand() % 100 + 1;
+
+    int mergeArray[size];
+    int mergeNewArray[size];
+
+    int elements;
+    for (int i = 0; i < size; ++i) {
+        elements = rand() % 100 + 1;
+        mergeNewArray[i] = elements;
+        mergeArray[i] = elements;
+    }
+
+    int mergeCounter = 0;
+    mergeSort(mergeArray, 0, size - 1, mergeCounter, 1);
+
+    int sizeOfArray = sizeof(mergeNewArray)/ sizeof(mergeNewArray[0]);
+    std::sort(mergeNewArray, mergeNewArray+sizeOfArray);
+
+    for (int k = 0; k < size; ++k) {
+        EXPECT_EQ(mergeArray[k], mergeNewArray[k]);
+    }
+}
+
+TEST(MergeSortTest, decreasingArray)
+{
+    srand(time(nullptr));
+    int size = rand() % 100 + 1;
+
+    int mergeArray[size];
+    int mergeNewArray[size];
+
+    int elements;
+    for (int i = 0; i < size; ++i) {
+        elements = rand() % 100 + 1;
+        mergeNewArray[i] = elements;
+        mergeArray[i] = elements;
+    }
+
+    int mergeCounter = 0;
+    mergeSort(mergeArray, 0, size - 1, mergeCounter, 0);
+
+    int sizeOfArray = sizeof(mergeNewArray)/ sizeof(mergeNewArray[0]);
+    std::sort(mergeNewArray, mergeNewArray+sizeOfArray, std::greater<>());
+
+    for (int k = 0; k < size; ++k) {
+        EXPECT_EQ(mergeArray[k], mergeNewArray[k]);
+    }
+}
+
+TEST(MergeSortTest, increasingVector)
+{
+    srand(time(nullptr));
+    int size = rand() % 100 + 1;
+    std::vector<int> myVector;
+
+    int elements;
+    for (int i = 0; i < size ; ++i) {
+        elements = rand() % 100 + 1;
+        myVector.push_back(elements);
+    }
+
+    int counter = 0;
+    std::vector<int> numbersInOrder = mergeSort(myVector, 0, size - 1, counter, 1);
+    std::sort(myVector.begin(), myVector.begin() + myVector.size());
+
+    EXPECT_EQ(numbersInOrder, myVector);
+}
+
+TEST(MergeSortTest, decreasingVector)
+{
+    srand(time(nullptr));
+    int size = rand() % 100 + 1;
+    std::vector<int> myVector;
+
+    int elements;
+    for (int i = 0; i < size ; ++i) {
+        elements = rand() % 100 + 1;
+        myVector.push_back(elements);
+    }
+
+    int counter = 0;
+    std::vector<int> numbersInOrder = mergeSort(myVector, 0, size - 1, counter, 0);
+    std::sort(myVector.begin(), myVector.end(), std::greater<>());
+
+    EXPECT_EQ(numbersInOrder, myVector);
+}
