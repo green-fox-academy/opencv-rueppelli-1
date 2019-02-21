@@ -28,5 +28,11 @@ int* mergeSort(int *unsorted, int low, int high, int &counter, int order);
 int* shellSort(int* array, int size, int &counter, int command);
 std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int command);
 
+void heapify(int myArray[], int size, int x, int &counter, int order = 1);
+void heapSortInit(int myArray[], int size, int &counter, int order = 1);
+int* heapSort(int unsorted[], int size, int &counter, int order = 1);
+void heapify(std::vector<int> &myVector, int size, int x, int &counter, int order = 1);
+void heapSortInit(std::vector<int> &myVector, int size, int &counter, int order = 1);
+std::vector<int> heapSort(std::vector<int> unsorted, int size, int &counter, int order = 1);
 
 #endif //OPENCV_RUEPELLI_1_SORTING_H
