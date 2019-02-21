@@ -511,3 +511,129 @@ std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int
     double duration = (finish - start) / cv::getTickFrequency();
     return vector;
 }
+
+void heapify(int myArray[], int size, int x, int &counter, int order)
+{
+    int temp;
+    int largest = x;
+    int leftChild = 2 * x + 1;
+    int rightChild = 2 * x + 2;
+
+    if(order == 1){
+        if (leftChild < size && myArray[leftChild] > myArray[largest]) {
+            largest = leftChild;
+            counter++;
+        }
+        if (rightChild < size && myArray[rightChild] > myArray[largest]) {
+            largest = rightChild;
+            counter++;
+        }
+        if (largest != x) {
+            temp = myArray[x];
+            myArray[x] = myArray[largest];
+            myArray[largest] = temp;
+            heapify(myArray, size, largest, counter);
+            counter++;
+        }
+    }else{
+        if (leftChild < size && myArray[leftChild] < myArray[largest]) {
+            largest = leftChild;
+            counter++;
+        }
+        if (rightChild < size && myArray[rightChild] < myArray[largest]) {
+            largest = rightChild;
+            counter++;
+        }
+        if (largest != x) {
+            temp = myArray[x];
+            myArray[x] = myArray[largest];
+            myArray[largest] = temp;
+            heapify(myArray, size, largest, counter, 0);
+            counter++;
+        }
+    }
+}
+
+void heapSortInit(int myArray[], int size, int &counter, int order)
+{
+    int temp;
+    for (int i = size / 2 - 1; i >= 0; i--)
+        heapify(myArray, size, i, counter, order);
+    for (int i = size - 1; i >= 0; i--) {
+        temp = myArray[0];
+        myArray[0] = myArray[i];
+        myArray[i] = temp;
+        heapify(myArray, i, 0, counter, order);
+        counter++;
+    }
+}
+
+int* heapSort(int unsorted[], int size, int &counter, int order)
+{
+    int* sorted = unsorted;
+    heapSortInit(sorted, size, counter, order);
+    return sorted;
+}
+
+void heapify(std::vector<int> &myVector, int size, int x, int &counter, int order)
+{
+    int temp;
+    int largest = x;
+    int leftChild = 2 * x + 1;
+    int rightChild = 2 * x + 2;
+
+    if(order == 1){
+        if (leftChild < size && myVector[leftChild] > myVector[largest]) {
+            largest = leftChild;
+            counter++;
+        }
+        if (rightChild < size && myVector[rightChild] > myVector[largest]) {
+            largest = rightChild;
+            counter++;
+        }
+        if (largest != x) {
+            temp = myVector[x];
+            myVector[x] = myVector[largest];
+            myVector[largest] = temp;
+            heapify(myVector, size, largest, counter);
+            counter++;
+        }
+    }else{
+        if (leftChild < size && myVector[leftChild] < myVector[largest]) {
+            largest = leftChild;
+            counter++;
+        }
+        if (rightChild < size && myVector[rightChild] < myVector[largest]) {
+            largest = rightChild;
+            counter++;
+        }
+        if (largest != x) {
+            temp = myVector[x];
+            myVector[x] = myVector[largest];
+            myVector[largest] = temp;
+            heapify(myVector, size, largest, counter, 0);
+            counter++;
+        }
+    }
+}
+
+void heapSortInit(std::vector<int> &myVector, int size, int &counter, int order)
+{
+    int temp;
+    for (int i = size / 2 - 1; i >= 0; i--)
+        heapify(myVector, size, i, counter, order);
+    for (int i = size - 1; i >= 0; i--) {
+        temp = myVector[0];
+        myVector[0] = myVector[i];
+        myVector[i] = temp;
+        heapify(myVector, i, 0, counter, order);
+        counter++;
+    }
+}
+
+std::vector<int> heapSort(std::vector<int> unsorted, int size, int &counter, int order)
+{
+    std::vector<int> sorted = std::move(unsorted);
+    heapSortInit(sorted, size, counter, order);
+    return sorted;
+}
