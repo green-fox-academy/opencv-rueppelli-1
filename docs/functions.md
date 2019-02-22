@@ -18,11 +18,11 @@
 
 ## sorting.cpp
 
-### [SelectionSort](#selectionSort)
-### [InsertionSort](#insertionSort)
-### [QuickSort](#quickSort)
-### [MergeSort](#mergeSort)
-### [ShellSort](#shellSort)
+### [selectionSort](#selectionSort)
+### [insertionSort](#insertionSort)
+### [quickSort](#quickSort)
+### [mergeSort](#mergeSort)
+### [shellSort](#shellSort)
 ### [heapSort](#heapSort)
 
 ### readDataBase
@@ -113,6 +113,7 @@
 ### selectionSort
 
 ```std::vector<int> selectionSort(std::vector<int> myVector, int &counter, int order)```
+
 ```int* selectionSort(int myArray[], int sizeOfArray, int &counter, int order)```
 
    - parameters: 
@@ -128,6 +129,7 @@
 ### insertionSort
 
 ```std::vector<int> insertion_sort(std::vector<int> vector, int size, int &counter, int command)```
+
 ```int *insertion_sort(int *array, int size, int &counter, int command)```
 
   - parameters: 
@@ -143,6 +145,7 @@
 ### quickSort
 
 ```std::vector<int> quickSort(std::vector<int> unsorted, int low, int high, int &counter, int order)```
+
 ```int* quickSort(int* array, int low, int high, int &counter, int order)```
 
    - parameters: 
@@ -159,6 +162,7 @@
   ### mergeSort
   
   ```std::vector<int> mergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order)```
+  
   ```int* mergeSort(int *unsorted, int low, int high, int &counter, int order)```
   
    - parameters: 
@@ -175,6 +179,7 @@
   ### shellSort
   
   ```int *shellSort(int *array, int size, int &counter, int command)```
+  
   ```std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int command)```
   
   - parameters: 
@@ -190,6 +195,7 @@
   ### heapSort
   
   ```int* heapSort(int unsorted[], int size, int &counter, int order)```
+  
   ```std::vector<int> heapSort(std::vector<int> unsorted, int size, int &counter, int order)```
 
   - parameters: 
