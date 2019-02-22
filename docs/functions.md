@@ -2,19 +2,28 @@
 
 ## database_handler.cpp
 
-|| [ReadDataBase](#readDataBase) || [CreateRecord](#createRecord) || [DeleteRecord](#deleteRecord) || [UpdateRecord](#updateRecord) || [SelectRecords](#selectRecords) ||
+### [ReadDataBase](#readDataBase)
+### [CreateRecord](#createRecord)
+### [DeleteRecord](#deleteRecord)
+### [UpdateRecord](#updateRecord)
+### [SelectRecords](#selectRecords)
 
 ## detect_circles.cpp
 
-|| [DetectCircles](#detectCircles) ||
+### [DetectCircles](#detectCircles)
 
 ## main.cpp
 
-|| [BluringImage](#bluringImage) ||
+### [BluringImage](#bluringImage)
 
 ## sorting.cpp
 
-|| [SelectionSort - Vectors](#selectionSortVector) || [SelectionSort - Arrays](#selectionSortArray) || [InsertionSort - Vectors](#insertionSortVector) || [InsertionSort - Arrays](#insertionSortArray) || [QuickSort - Vectors](#quickSortVector) || [QuickSort - Arrays](#quickSortArray) ||
+### [SelectionSort](#selectionSort)
+### [InsertionSort](#insertionSort)
+### [QuickSort](#quickSort)
+### [MergeSort](#mergeSort)
+### [ShellSort](#shellSort)
+### [heapSort](#heapSort)
 
 ### readDataBase
 
@@ -101,90 +110,94 @@
       - this function can create trackbars
       
      
-### selectionSortVector
+### selectionSort
 
 ```std::vector<int> selectionSort(std::vector<int> myVector, int &counter, int order)```
+```int* selectionSort(int myArray[], int sizeOfArray, int &counter, int order)```
 
    - parameters: 
-      - myVector ( the vector you want to sort )
+      - myVector/myArray ( the vector/array you want to sort )
+      - sizeOfArray ( only if it's an array )
       - &counter ( counts the steps ) 
       - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
    - return type:
-      - std::vector<int> ( returns the sorted vector )
+      - std::vector<int>/int* ( returns the sorted vector/array )
    - purpose:
-      - the aim of this function is to sort the numbers of the vector in descending or increasing order
-  
-
-### selectionSortArray
-
-```int* selectionSort(int myArray[], int sizeOfArray, int &counter, int order)```
-
-   - parameters:
-      - myArray ( the array you want to sort )
-      - sizeOfArray ( the size of the array - defined in main.cpp )
-      - &counter ( counts the steps )
-      - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1))
-   - return type:
-       - int* ( returns the sorted array )
-   - purpose:
-      - the aim of this function is to sort the numbers of the array in descending or increasing order
-       
+      - the aim of this function is to sort the numbers of the vector/array in descending or increasing order
    
-### insertionSortVector
+### insertionSort
 
-```std::vector<int> insertion_sort(std::vector<int> &vector, int size, int &counter, int command)```
+```std::vector<int> insertion_sort(std::vector<int> vector, int size, int &counter, int command)```
+```int *insertion_sort(int *array, int size, int &counter, int command)```
 
   - parameters: 
-      - &vector ( the vector you want to sort )
-      - size ( size of the vector )
+      - vector/array ( the vector/array you want to sort )
+      - size ( size of the vector/array )
       - &counter ( counts the steps ) 
       - command ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
    - return type:
-      - std::vector<int> ( returns the sorted vector )
+      - std::vector<int>/int* ( returns the sorted vector/array )
   - purpose:
-      - the aim of this function is to sort the numbers of the vector in descending or increasing order
+      - the aim of this function is to sort the numbers of the vector/array in descending or increasing order
 
-
-### insertionSortArray
-
-```int *insertion_sort(int *array, int size, int &counter, int command)```
-
-   - parameters:
-      - array ( the array you want to sort )
-      - size ( the size of the array - defined in main.cpp )
-      - &counter ( counts the steps )
-      - command ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1))
-   - return type:
-       - int* ( returns the sorted array )
-   - purpose:
-       - the aim of this function is to sort the numbers of the array in descending or increasing order
-
-### quickSortVector
+### quickSort
 
 ```std::vector<int> quickSort(std::vector<int> unsorted, int low, int high, int &counter, int order)```
-
-   - parameters: 
-      - unsorted ( the vector you want to sort )
-      - low ( used for recursion - value is always = 0 )
-      - high ( used for recursion - value is always 'size - 1' )
-      - &counter ( counts the steps )
-      - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
-   - return type:
-      - std::vector<int> ( returns the sorted vector )
-   - purpose:
-       - the aim of this function is to sort the numbers of the vector in descending or increasing order
-   
-### quickSortArray
-
 ```int* quickSort(int* array, int low, int high, int &counter, int order)```
 
    - parameters: 
-      - array ( the array you want to sort )
+      - unsorted/array ( the vector/array you want to sort )
       - low ( used for recursion - value is always = 0 )
       - high ( used for recursion - value is always 'size - 1' )
       - &counter ( counts the steps )
       - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
    - return type:
-      - int* ( returns the sorted array )
+      - std::vector<int>/int* ( returns the sorted vector/array )
    - purpose:
-      - the aim of this function is to sort the numbers of the array in descending or increasing order
+       - the aim of this function is to sort the numbers of the vector/array in descending or increasing order
+  
+  ### mergeSort
+  
+  ```std::vector<int> mergeSort(std::vector<int> unsorted, int low, int high, int &counter, int order)```
+  ```int* mergeSort(int *unsorted, int low, int high, int &counter, int order)```
+  
+   - parameters: 
+      - unsorted ( the vector/array you want to sort )
+      - low ( used for recursion - value is always = 0 )
+      - high ( used for recursion - value is always 'size - 1' )
+      - &counter ( counts the steps )
+      - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
+   - return type:
+      - std::vector<int>/int* ( returns the sorted vector/array )
+   - purpose:
+       - the aim of this function is to sort the numbers of the vector/array in descending or increasing order
+  
+  ### shellSort
+  
+  ```int *shellSort(int *array, int size, int &counter, int command)```
+  ```std::vector<int> shellSort(std::vector<int> &vector, int size, int &counter, int command)```
+  
+  - parameters: 
+      - vector/array ( the vector/array you want to sort )
+      - size ( size of the vector/array )
+      - &counter ( counts the steps ) 
+      - command ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
+   - return type:
+      - std::vector<int>/int* ( returns the sorted vector/array )
+  - purpose:
+      - the aim of this function is to sort the numbers of the vector/array in descending or increasing order
+  
+  ### heapSort
+  
+  ```int* heapSort(int unsorted[], int size, int &counter, int order)```
+  ```std::vector<int> heapSort(std::vector<int> unsorted, int size, int &counter, int order)```
+
+  - parameters: 
+      - unsorted ( the vector/array you want to sort )
+      - size ( size of the vector/array )
+      - &counter ( counts the steps ) 
+      - order ( if the value is 0 it prints out the numbers in descending order, if 1 it prints out the numbers in increasing order, ((default value = 1)) )
+   - return type:
+      - std::vector<int>/int* ( returns the sorted vector/array )
+  - purpose:
+      - the aim of this function is to sort the numbers of the vector/array in descending or increasing order
