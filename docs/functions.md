@@ -2,8 +2,8 @@
 
 ## database_handler.cpp
 
-### [ReadDataBase](##readDataBase)
-### [CreateRecord](#createRecord)
+### [ReadDataBase](#readDataBase)
+### [createRecord](#createRecord)
 ### [DeleteRecord](#deleteRecord)
 ### [UpdateRecord](#updateRecord)
 ### [SelectRecords](#selectRecords)
