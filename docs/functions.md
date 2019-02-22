@@ -2,27 +2,36 @@
 
 ## database_handler.cpp
 
-  [ReadDataBase](#readDataBase)
-  [CreateRecord](#createRecord)
-  [DeleteRecord](#deleteRecord)
-  [UpdateRecord](#updateRecord)
-  [SelectRecords](#selectRecords)
+  [readDataBase](#readDataBase)
+  
+  [createRecord](#createRecord)
+  
+  [deleteRecord](#deleteRecord)
+  
+  [updateRecord](#updateRecord)
+  
+  [selectRecords](#selectRecords)
 
 ## detect_circles.cpp
 
-  [DetectCircles](#detectCircles)
+  [detectCircles](#detectCircles)
 
 ## main.cpp
 
-  [BluringImage](#bluringImage)
+  [bluringImage](#bluringImage)
 
 ## sorting.cpp
 
   [selectionSort](#selectionSort)
+  
   [insertionSort](#insertionSort)
+  
   [quickSort](#quickSort)
+  
   [mergeSort](#mergeSort)
+  
   [shellSort](#shellSort)
+  
   [heapSort](#heapSort)
 
 ### readDataBase
