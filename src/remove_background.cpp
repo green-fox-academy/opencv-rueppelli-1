@@ -41,7 +41,6 @@ cv::Mat segmentation(cv::Mat segmentImage)
     int labelNumber = cv::connectedComponents(segmentImage, labels);
     std::cout << "labels :" << labelNumber << std::endl;
 
-
     cv::Mat newimg = cv::Mat::zeros(segmentImage.rows, segmentImage.cols, CV_8UC3);
 
     for (int i = 1; i < labelNumber; ++i) {
@@ -56,10 +55,8 @@ cv::Mat segmentationStats(cv::Mat segmentImage)
     cv::Mat stats;
     cv::Mat centroids;
 
-
     int labelNumber = cv::connectedComponentsWithStats(segmentImage, labels, stats, centroids);
-    std::cout << "labels :" << labelNumber << std::endl;
-
+    std::cout << "labels: " << labelNumber << std::endl;
 
     cv::Mat newimg = cv::Mat::zeros(segmentImage.rows, segmentImage.cols, CV_8UC3);
 
@@ -82,4 +79,21 @@ cv::Mat segmentationStats(cv::Mat segmentImage)
         }
     }
     return newimg;
+}
+
+cv::Mat akazeDetection(cv::Mat image)
+{
+    cv::Mat homography;
+    cv::FileStorage fs("akaze.xml", cv::FileStorage::READ);
+    fs.getFirstTopLevelNode() >> homography;
+
+    std::vector<cv::KeyPoint> keypoints;
+    cv::Ptr<cv::AKAZE> akaze = cv::AKAZE::create();
+    akaze->detect(image, keypoints);
+    cv::Mat img_keypoints;
+    drawKeypoints(image, keypoints, img_keypoints, cv::Scalar::all(-1), cv::DrawMatchesFlags::DEFAULT);
+
+    std::cout << "Found " << keypoints.size() << " keypoints on the picture." << std::endl;
+
+    return img_keypoints;
 }
