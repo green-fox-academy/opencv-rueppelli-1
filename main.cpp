@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <time.h>
+#include <opencv2/core/utility.hpp>
 
 #include "detect_circles.h"
 #include "database_handler.h"
@@ -21,48 +22,48 @@ void gaussian(int, void *);
 void median(int, void *);
 void bluring_image();
 
-int main()
+int main(int argc, char* argv[])
 {
-
-    int x = 0;
-    int y = 0;
-
-    std::string imagePath = "..\\img\\ball.jpg";
-    std::string shapePath = "../img/shapes.jpg";
-    img = cv::imread( imagePath, cv::IMREAD_GRAYSCALE);
-    shapes = cv::imread(shapePath, cv::IMREAD_GRAYSCALE);
-
+    img = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
+    shapes = cv::imread(argv[2], cv::IMREAD_GRAYSCALE);
 
     if (!img.data) {
         std::cout << "Could not open or find the image" << std::endl;
         return -1;
     }
 
-    /*cv::namedWindow("shapes", cv::WINDOW_AUTOSIZE);
-    cv::imshow("shapes", shapes);
+    cv::namedWindow("Project Picture", cv::WINDOW_NORMAL );
+    cv::imshow("Project Picture", img);
+    cv::namedWindow("SHAPES", cv::WINDOW_AUTOSIZE);
+    cv::imshow("SHAPES", shapes);
     cv::waitKey();
+
     cv::Mat pattern = createLightPattern(shapes);
     shapes = removeLight(shapes, pattern);
-    cv::imshow("shapes", shapes);
+    cv::namedWindow("Remove Light", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Remove Light", shapes);
     cv::waitKey();
+
     thresholding(shapes, shapes);
-    cv::imshow("shapes", shapes);
+    cv::namedWindow("Thresholding", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Thresholding", shapes);
     cv::waitKey();
+
     shapes = segmentationStats(shapes);
-    cv::imshow("shapes", shapes);
+    cv::namedWindow("Segmentation Stats", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Segmentation Stats", shapes);
     cv::waitKey();
 
-
-    cv::namedWindow("Project Picture", 1);
+    cv::namedWindow("Detect Circles", 1);
     clock_t start, end;
     start = clock();
     int circleAmount = detectCircle(img);
     end = clock();
     double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
     //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
-    imshow("Project Picture", img);*/
+    imshow("Detect Circles", img);
 
-    cv::waitKey(0);
+    cv::waitKey(0) ;
 
     return 0;
 }
