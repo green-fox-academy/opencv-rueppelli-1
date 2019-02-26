@@ -15,6 +15,7 @@
 cv::Mat img;
 cv::Mat smoothed_img;
 cv::Mat shapes;
+cv::Mat points;
 int v_median = 0;
 int v_gaussian = 0;
 
@@ -26,6 +27,7 @@ int main(int argc, char* argv[])
 {
     img = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
     shapes = cv::imread(argv[2], cv::IMREAD_GRAYSCALE);
+    points = cv::imread(argv[3], cv::IMREAD_COLOR);
 
     if (!img.data) {
         std::cout << "Could not open or find the image" << std::endl;
@@ -52,6 +54,11 @@ int main(int argc, char* argv[])
     shapes = segmentationStats(shapes);
     cv::namedWindow("Segmentation Stats", cv::WINDOW_AUTOSIZE);
     cv::imshow("Segmentation Stats", shapes);
+    cv::waitKey();
+
+    points = akazeDetection(points);
+    cv::namedWindow("AKAZE", cv::WINDOW_AUTOSIZE);
+    imshow("AKAZE", points );
     cv::waitKey();
 
     cv::namedWindow("Detect Circles", 1);
