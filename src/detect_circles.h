@@ -10,6 +10,7 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 #include "database_handler.h"
+#include "remove_background.h"
 
 
 

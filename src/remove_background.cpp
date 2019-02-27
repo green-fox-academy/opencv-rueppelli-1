@@ -27,11 +27,11 @@ cv::Mat createLightPattern(cv::Mat image)
     return pattern;
 }
 
-void sharpening(cv::Mat image, cv::Mat dst)
+void sharpening(cv::Mat image)
 {
     cv::Mat kernel = (cv::Mat_<char>(3, 3) << 0, -1, 0, -1, 5, -1, 0, -1, 0);
-    cv::filter2D(image, dst, -1/CV_64F, kernel);
-    imshow("Sharpened Photo", dst);
+    cv::filter2D(image, image, -1/CV_64F, kernel);
+    imshow("Sharpened Photo", image);
 }
 
 cv::Mat segmentation(cv::Mat segmentImage)
