@@ -2,6 +2,7 @@
 // Created by Gé on 2019. 02. 14..
 //
 
+#include <msidefs.h>
 #include "histogram.h"
 
 cv::Mat createHistogram(cv::Mat image)
@@ -37,18 +38,37 @@ cv::Mat createHistogram(cv::Mat image)
     {
         line( histImage, cv::Point( binWidth*(i-1), histHeight - cvRound(blueHistogram.at<float>(i-1)) ),
               cv::Point( binWidth*(i), histHeight - cvRound(blueHistogram.at<float>(i)) ),
-              cv::Scalar( 255, 0, 0), 2, 8, 0  );
+              cv::Scalar( 255, 0, 0), 1, 8, 0  );
         line( histImage, cv::Point( binWidth*(i-1), histHeight - cvRound(greenHistogram.at<float>(i-1)) ),
               cv::Point( binWidth*(i), histHeight - cvRound(greenHistogram.at<float>(i)) ),
-              cv::Scalar( 0, 255, 0), 2, 8, 0  );
+              cv::Scalar( 0, 255, 0), 1, 8, 0  );
         line( histImage, cv::Point( binWidth*(i-1), histHeight - cvRound(redHistogram.at<float>(i-1)) ),
               cv::Point( binWidth*(i), histHeight - cvRound(redHistogram.at<float>(i)) ),
-              cv::Scalar( 0, 0, 255), 2, 8, 0  );
+              cv::Scalar( 0, 0, 255), 1, 8, 0  );
     }
 
-    imshow("Base pic :)", image);
+  //  imshow("Base pic :)", image);
     imshow("Our calcHist picture", histImage );
     cv::waitKey();
 
     return histImage;
+}
+
+cv::Mat normalize(cv::Mat img)
+{
+    cv::Mat image;
+    cv::Mat image2;
+    cv::cvtColor(img, image, cv::COLOR_BGR2YCrCb);
+
+    std::vector<cv::Mat> channels;
+
+    cv::split(image, channels);
+    cv::equalizeHist(channels[0], channels[0]);
+    cv::merge(channels, image);
+
+    cv::cvtColor(image, image2, cv::COLOR_YCrCb2BGR);
+
+    createHistogram(image2);
+
+    return image2;
 }
