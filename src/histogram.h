@@ -10,5 +10,6 @@
 #include <opencv2/highgui.hpp>
 
 cv::Mat createHistogram(cv::Mat image);
+cv::Mat normalize(cv::Mat img);
 
 #endif //OPENCV_RUEPELLI_1_HISTOGRAM_H
