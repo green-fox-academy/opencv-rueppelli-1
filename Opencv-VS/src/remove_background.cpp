@@ -105,3 +105,21 @@ cv::Mat akazeDetection(cv::Mat image)
 
     return img_keypoints;
 }
+
+cv::Mat fastFeatureDetection(cv::Mat image)
+{
+	cv::Mat homography;
+	cv::FileStorage fs("fastFeatureDetector.xml", cv::FileStorage::READ);
+	fs.getFirstTopLevelNode() >> homography;
+
+	std::vector<cv::KeyPoint> keypoints;
+	
+	cv::Ptr<cv::FastFeatureDetector> fastFeatureDetect = cv::FastFeatureDetector::create();
+	fastFeatureDetect->detect(image, keypoints);
+	cv::Mat img_keypoints;
+	drawKeypoints(image, keypoints, img_keypoints, cv::Scalar::all(-1), cv::DrawMatchesFlags::DEFAULT);
+
+	std::cout << "Found " << keypoints.size() << " keypoints on the picture." << std::endl;
+
+	return img_keypoints;
+}

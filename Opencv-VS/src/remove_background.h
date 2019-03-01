@@ -21,6 +21,7 @@ void sharpening(cv::Mat image);
 cv::Mat segmentation(cv::Mat segmentImage);
 cv::Mat segmentationStats(cv::Mat segmentImage);
 cv::Mat akazeDetection (cv::Mat image);
+cv::Mat fastFeatureDetection(cv::Mat image);
 
 
 #endif //OPENCV_RUEPELLI_1_REMOVE_BACKGROUND_H

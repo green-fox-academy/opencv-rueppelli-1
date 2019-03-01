@@ -17,6 +17,7 @@ cv::Mat img;
 cv::Mat smoothed_img;
 cv::Mat shapes;
 cv::Mat points;
+cv::Mat points2;
 cv::Mat testPicture;
 int v_median = 0;
 int v_gaussian = 0;
@@ -31,12 +32,13 @@ int main(int argc, char* argv[])
     shapes = cv::imread(argv[2], cv::IMREAD_GRAYSCALE);
     points = cv::imread(argv[3], cv::IMREAD_COLOR);
     testPicture = cv::imread(argv[4], cv::IMREAD_GRAYSCALE);
+	points2 = cv::imread(argv[3], cv::IMREAD_GRAYSCALE);
 
     if (!img.data) {
         std::cout << "Could not open or find the image" << std::endl;
         return -1;
     }
-
+	fastFeatureDetection(img);
     detectCircle(testPicture);
     cv::namedWindow("Project Picture", cv::WINDOW_NORMAL );
     cv::imshow("Project Picture", img);
@@ -64,6 +66,11 @@ int main(int argc, char* argv[])
     cv::namedWindow("AKAZE", cv::WINDOW_AUTOSIZE);
     imshow("AKAZE", points );
     cv::waitKey();
+
+	points2 = fastFeatureDetection(points2);
+	cv::namedWindow("FastFeatureDetection", cv::WINDOW_AUTOSIZE);
+	imshow("FastFeatureDetection", points2);
+	cv::waitKey();
 
     cv::namedWindow("Detect Circles", 1);
     clock_t start, end;
