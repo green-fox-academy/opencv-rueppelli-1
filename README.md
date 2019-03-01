@@ -49,7 +49,7 @@ We use the following technologies:
  - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
  - [CMake](https://github.com/Kitware/CMake/releases/download/v3.14.0-rc1/cmake-3.14.0-rc1-win64-x64.msi)
  - [VCPKG](https://github.com/Microsoft/vcpkg)
- - [OpenCV 4.0.1] (https://drive.google.com/open?id=11OIT6GlLsg0z8G8tLzs674nv5BZdKgfq)
+ - [OpenCV 4.0.1](https://drive.google.com/open?id=11OIT6GlLsg0z8G8tLzs674nv5BZdKgfq)
  
  - Intall Visual Studio 2017 and the Microsoft Visual c++ toolset with the installer.
  - Install CMake and add it to your PATH environment variable.
