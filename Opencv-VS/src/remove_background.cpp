@@ -125,3 +125,18 @@ cv::Mat fastFeatureDetection(cv::Mat image)
 
 	return img_keypoints;
 }
+
+cv::Mat binarizeImageOtsu(cv::Mat image)
+{
+	cv::Mat newImage;
+	cv::threshold(image, newImage, 0, 255, cv::THRESH_OTSU);
+
+	int allPixels = newImage.rows * newImage.cols;
+	int whitePixels = cv::countNonZero(newImage);
+	int blackPixels = allPixels - whitePixels;
+
+	if (whitePixels < blackPixels)
+		return newImage;
+	else
+		return ~newImage;
+}

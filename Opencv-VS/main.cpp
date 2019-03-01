@@ -18,6 +18,7 @@ cv::Mat smoothed_img;
 cv::Mat shapes;
 cv::Mat points;
 cv::Mat points2;
+cv::Mat points3;
 cv::Mat testPicture;
 int v_median = 0;
 int v_gaussian = 0;
@@ -38,8 +39,11 @@ int main(int argc, char* argv[])
         std::cout << "Could not open or find the image" << std::endl;
         return -1;
     }
+
 	fastFeatureDetection(img);
-    detectCircle(testPicture);
+	detectCircle(testPicture);
+
+   
     cv::namedWindow("Project Picture", cv::WINDOW_NORMAL );
     cv::imshow("Project Picture", img);
     cv::namedWindow("SHAPES", cv::WINDOW_AUTOSIZE);
@@ -51,6 +55,10 @@ int main(int argc, char* argv[])
     cv::namedWindow("Remove Light", cv::WINDOW_AUTOSIZE);
     cv::imshow("Remove Light", shapes);
     cv::waitKey();
+
+	cv::Mat binarizedImage = binarizeImageOtsu(img);
+	cv::imshow("OTSU", binarizedImage);
+	cv::waitKey();
 
     thresholding(shapes, shapes);
     cv::namedWindow("Thresholding", cv::WINDOW_AUTOSIZE);
@@ -71,15 +79,6 @@ int main(int argc, char* argv[])
 	cv::namedWindow("FastFeatureDetection", cv::WINDOW_AUTOSIZE);
 	imshow("FastFeatureDetection", points2);
 	cv::waitKey();
-
-    cv::namedWindow("Detect Circles", 1);
-    clock_t start, end;
-    start = clock();
-    int circleAmount = detectCircle(img);
-    end = clock();
-    double processingTime = ((double) (end - start)) / CLOCKS_PER_SEC;
-    //createRecord("../files/CircleDetectionDatabase.db", "Circles", imagePath, processingTime, circleAmount);
-    imshow("Detect Circles", img);
 
     cv::waitKey(0) ;
 
