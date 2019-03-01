@@ -108,6 +108,8 @@ cv::Mat akazeDetection(cv::Mat image)
 
 cv::Mat fastFeatureDetection(cv::Mat image)
 {
+
+	sharpening(image);
 	cv::Mat homography;
 	cv::FileStorage fs("fastFeatureDetector.xml", cv::FileStorage::READ);
 	fs.getFirstTopLevelNode() >> homography;
