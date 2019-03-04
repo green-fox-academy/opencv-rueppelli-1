@@ -32,7 +32,7 @@ We use the following technologies:
  - Pictures
     - detected circles with coordinates and area :
 
-    ![detected circles with coordinates and area](OpenCV-VS/img/detect_circles.PNG)
+    ![detected circles with coordinates and area](Opencv-VS/img/detect_circles.PNG)
     - bluring :
 
     ![blured image](Opencv-VS/img/detect_circles_2.PNG)
