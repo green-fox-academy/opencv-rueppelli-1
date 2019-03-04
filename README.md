@@ -27,7 +27,7 @@ We use the following technologies:
 
 
 ## THE PROJECT ITSELF
- - [Functions we used](OpenCV-VS/docs/functions.md)
+ - [Functions we used](Opencv-VS/docs/functions.md)
 
  - Pictures
     - detected circles with coordinates and area :
@@ -35,10 +35,10 @@ We use the following technologies:
     ![detected circles with coordinates and area](OpenCV-VS/img/detect_circles.PNG)
     - bluring :
 
-    ![blured image](OpenCV-VS/img/detect_circles_2.PNG)
+    ![blured image](Opencv-VS/img/detect_circles_2.PNG)
     - thresholding :
     
-    ![threshold image](OpenCV-VS/img/detect_circles_3.PNG)
+    ![threshold image](Opencv-VS/img/detect_circles_3.PNG)
 
 
 
