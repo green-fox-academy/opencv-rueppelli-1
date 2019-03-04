@@ -55,7 +55,7 @@ We use the following technologies:
  - Install CMake and add it to your PATH environment variable.
  - Start the InstallOCV.sh, it will automatically download the latest version of OpenCV with the extra modules and builds the binaries for you.
  - Create the OPENCV_DIR environment variable and set it to the vc15 folder. (%the folder where installOCV.sh is located%\install\x64\vc15)
- - In Visual Studio, on the property pages of your project set the following properties: C++ -> General -> Additional include libraries -> "$(OPENCV_DIR)\..\..\include", Linker -> General -> Additional library directories -> "$(OPENCV_DIR)\lib", Linker -> Input -> Additional Dependencies ->  "opencv_world401d.lib;opencv_world401.lib;ws2_32.lib;"
+ - In Visual Studio, on the property pages of your project set the following properties: C++ -> General -> Additional include libraries -> `$(OPENCV_DIR)\..\..\include`, Linker -> General -> Additional library directories -> `$(OPENCV_DIR)\lib`, Linker -> Input -> Additional Dependencies ->  `opencv_world401d.lib;opencv_world401.lib;ws2_32.lib;`
  - Clone the VCPKG repo and follow the instructions to install it. ('bootstrap-vcpkg.bat' and 'vcpkg integrate install')
  - Install Sqlite3, gtest and Tesseract with the following command with VCPKG: 'vcpkg install sqlite3:x64-windows', 'vcpkg install tesseract:x64-windows' and 'vcpkg install gtest:x64-windows'
  - Known issue: on some machines, Visual Studio can't find the opencv-world401.dll, in that case, copy the file from the OpenCV install folder to the folder of the built executable
