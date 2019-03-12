@@ -26,9 +26,13 @@ int v_gaussian = 0;
 void gaussian(int, void *);
 void median(int, void *);
 void bluring_image();
+std::vector<cv::Mat> loadFolder(cv::String path);
+
 
 int main(int argc, char* argv[])
 {
+	cv::String path = "img";
+	/*
     img = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
     shapes = cv::imread(argv[2], cv::IMREAD_GRAYSCALE);
     points = cv::imread(argv[3], cv::IMREAD_COLOR);
@@ -79,6 +83,14 @@ int main(int argc, char* argv[])
 	cv::namedWindow("FastFeatureDetection", cv::WINDOW_AUTOSIZE);
 	imshow("FastFeatureDetection", points2);
 	cv::waitKey();
+	*/
+
+	std::vector<cv::Mat> images = loadFolder(path);
+	for (int i = 0; i < images.size(); ++i) {
+		sharpening(images[i]);
+		cv::imshow("folder", akazeDetection(images[i]));
+		cv::waitKey(100);
+	}
 
     cv::waitKey(0) ;
 
@@ -105,4 +117,18 @@ void bluring_image ()
     cv::createTrackbar("Median", "Project Picture", &v_median, 25, median);
     median(1, nullptr);
     cv::waitKey();
+}
+
+std::vector<cv::Mat> loadFolder(cv::String path)
+{
+	std::vector<cv::String> fn;
+	std::vector<cv::Mat> data;
+	cv::glob(path, fn, true);
+	for (size_t k = 0; k < fn.size(); ++k) {
+		std::cout << fn[k] << std::endl;
+		cv::Mat image = cv::imread(fn[k]);
+		if (image.empty()) continue;
+		data.push_back(image);
+	}
+	return data;
 }
