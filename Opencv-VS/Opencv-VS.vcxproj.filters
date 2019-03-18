@@ -27,10 +27,10 @@
     <ClCompile Include="src\histogram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\remove_background.cpp">
+    <ClCompile Include="src\sorting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\sorting.cpp">
+    <ClCompile Include="src\image_manipulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClInclude Include="src\histogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\remove_background.h">
+    <ClInclude Include="src\sorting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\sorting.h">
+    <ClInclude Include="src\image_manipulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

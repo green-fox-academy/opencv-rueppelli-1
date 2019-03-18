@@ -167,14 +167,14 @@
     <ClCompile Include="src\database_handler.cpp" />
     <ClCompile Include="src\detect_circles.cpp" />
     <ClCompile Include="src\histogram.cpp" />
-    <ClCompile Include="src\remove_background.cpp" />
+    <ClCompile Include="src\image_manipulation.cpp" />
     <ClCompile Include="src\sorting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\database_handler.h" />
     <ClInclude Include="src\detect_circles.h" />
     <ClInclude Include="src\histogram.h" />
-    <ClInclude Include="src\remove_background.h" />
+    <ClInclude Include="src\image_manipulation.h" />
     <ClInclude Include="src\sorting.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
