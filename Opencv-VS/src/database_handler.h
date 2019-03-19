@@ -7,7 +7,6 @@
 #include <opencv2/core/mat.hpp>
 #include <opencv2/opencv.hpp>
 
-
 static int callBack(void *NotUsed, int argc, char **argv, char **azColName);
 int readDataBase(std::string databasePath);
 int createRecord(std::string databasePath, std::string tableName, std::string path, double processingTime, int detectedCircles);
