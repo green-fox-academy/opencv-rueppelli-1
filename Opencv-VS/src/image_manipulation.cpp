@@ -99,11 +99,27 @@ cv::Mat fastFeatureDetection(cv::Mat image)
 cv::Mat thresholding(cv::Mat image)
 {
 	cv::Mat newImage;
-	cv::threshold(image, newImage, 100, 255, cv::THRESH_OTSU);
+	cv::threshold(image, image, 0.0, 255.0, cv::THRESH_BINARY | cv::THRESH_OTSU);
 
-	int allPixels = newImage.rows * newImage.cols;
+	int allPixels = image.rows * image.cols;
 	int whitePixels = cv::countNonZero(newImage);
 	int blackPixels = allPixels - whitePixels;
 
-	return whitePixels < blackPixels ? newImage : ~newImage;
+	return whitePixels < blackPixels ? image : ~image;
+}
+
+cv::Mat textDetection(cv::Mat image)
+{
+	cv::cvtColor(image, image, cv::COLOR_RGB2GRAY);
+
+	cv::Mat morphKernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
+	cv::morphologyEx(image, image, cv::MORPH_GRADIENT, morphKernel);
+
+	thresholding(image);
+
+	morphKernel = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(9, 1));
+	cv::morphologyEx(image, image, cv::MORPH_CLOSE, morphKernel);
+	cv::imshow("textDect FIRST PART result", image);
+
+	return image;
 }
