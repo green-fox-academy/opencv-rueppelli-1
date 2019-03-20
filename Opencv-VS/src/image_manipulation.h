@@ -20,5 +20,6 @@ cv::Mat segmentationStats(cv::Mat segmentImage);
 cv::Mat akazeDetection(cv::Mat image);
 cv::Mat fastFeatureDetection(cv::Mat image);
 cv::Mat thresholding(cv::Mat image);
+cv::Mat textDetection(cv::Mat image);
 
 #endif //OPENCV_RUEPELLI_1_REMOVE_BACKGROUND_H
