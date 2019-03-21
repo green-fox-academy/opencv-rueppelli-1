@@ -110,16 +110,30 @@ cv::Mat thresholding(cv::Mat image)
 
 cv::Mat textDetection(cv::Mat image)
 {
-	cv::cvtColor(image, image, cv::COLOR_RGB2GRAY);
-
+	cv::Mat workingImage = image.clone();
+	cv::cvtColor(workingImage, workingImage, cv::COLOR_RGB2GRAY);
 	cv::Mat morphKernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
-	cv::morphologyEx(image, image, cv::MORPH_GRADIENT, morphKernel);
+	cv::morphologyEx(workingImage, workingImage, cv::MORPH_GRADIENT, morphKernel);
+	thresholding(workingImage);
+	morphKernel = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(8, 2));
+	cv::morphologyEx(workingImage, workingImage, cv::MORPH_CLOSE, morphKernel);
 
-	thresholding(image);
-
-	morphKernel = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(9, 1));
-	cv::morphologyEx(image, image, cv::MORPH_CLOSE, morphKernel);
-	cv::imshow("textDect FIRST PART result", image);
-
+	cv::Mat mask = cv::Mat::zeros(workingImage.size(), CV_8UC1);
+	std::vector<std::vector<cv::Point>>contours;
+	std::vector<cv::Vec4i>hierarchy;
+	cv::findContours(workingImage, contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
+	
+	for (int i = 0; 0 <= i; i = hierarchy[i][0]){
+		cv::Rect rect = cv::boundingRect(contours[i]);
+		cv::Mat maskedImage(mask, rect);
+		maskedImage = cv::Scalar(0, 0, 0);			
+		cv::drawContours(mask, contours, i, cv::Scalar(255, 255, 255), cv::FILLED);
+		
+		double r = (double)cv::countNonZero(maskedImage) / (rect.width * rect.height);
+		if ( r > .45 && (rect.height > 6 && rect.width > 6)) {
+			rectangle(image, rect, cv::Scalar(175, 85, 97), 2);
+			}
+	}
+ 	cv::imshow("detected text", image);
 	return image;
 }
