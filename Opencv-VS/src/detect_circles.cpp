@@ -24,15 +24,15 @@ cv::Mat detectCircle(cv::Mat img)
         int centerY = c[1];
         char buffer[11];
         sprintf(buffer, "area = %d", radius * radius);
-        cv::putText(img, buffer, cv::Point(centerX - radius / 2, centerY - radius / 2), cv::FONT_HERSHEY_SIMPLEX, 0.5,
-                    cv::Scalar(255, 255, 255), 2, 8, false);
+       // cv::putText(img, buffer, cv::Point(centerX - radius / 2, centerY - radius / 2), cv::FONT_HERSHEY_SIMPLEX, 0.5,
+                  //  cv::Scalar(255, 255, 255), 2, 8, false);
         char buffer2[11];
         sprintf(buffer, "X = %d", c[0]);
         sprintf(buffer2, "Y = %d", c[1]);
-        cv::putText(img, buffer, cv::Point(centerX - radius / 2, centerY + radius / 4), cv::FONT_HERSHEY_SIMPLEX, 0.5,
-                    cv::Scalar(255, 255, 255), 2, 8, false);
-        cv::putText(img, buffer2, cv::Point(centerX - radius / 4, centerY + radius / 2), cv::FONT_HERSHEY_SIMPLEX, 0.5,
-                    cv::Scalar(255, 255, 255), 2, 8, false);
+       // cv::putText(img, buffer, cv::Point(centerX - radius / 2, centerY + radius / 4), cv::FONT_HERSHEY_SIMPLEX, 0.5,
+               //     cv::Scalar(255, 255, 255), 2, 8, false);
+       // cv::putText(img, buffer2, cv::Point(centerX - radius / 4, centerY + radius / 2), cv::FONT_HERSHEY_SIMPLEX, 0.5,
+                //    cv::Scalar(255, 255, 255), 2, 8, false);
     }
 	numberOfCircles = circles.size();
 
@@ -43,5 +43,6 @@ cv::Mat detectCircle(cv::Mat img)
     }
     img.copyTo(maskedImage, mask);
     imshow("Detected Circles on masked image", maskedImage);
+
     return maskedImage;
 }
