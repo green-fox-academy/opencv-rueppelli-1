@@ -1,6 +1,6 @@
 #include "detect_circles.h"
 
-int detectCircle(cv::Mat img)
+cv::Mat detectCircle(cv::Mat img)
 {
     int numberOfCircles;
 	//cv::GaussianBlur(img, img, cv::Size(7, 7), 0, 0);
@@ -43,5 +43,5 @@ int detectCircle(cv::Mat img)
     }
     img.copyTo(maskedImage, mask);
     imshow("Detected Circles on masked image", maskedImage);
-    return numberOfCircles;
+    return maskedImage;
 }

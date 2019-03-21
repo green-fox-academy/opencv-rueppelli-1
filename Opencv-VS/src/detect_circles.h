@@ -8,6 +8,6 @@
 #include "database_handler.h"
 #include "image_manipulation.h"
 
-int detectCircle(cv::Mat img);
+cv::Mat detectCircle(cv::Mat img);
 
 #endif //OPENCV_RUEPELLI_1_DETECTCIRCLES_H
